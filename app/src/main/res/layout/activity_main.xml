@@ -33,7 +33,37 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     ]]>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="334dp"
+        android:layout_height="424dp"
+        android:alpha="0.3"
+        android:rotation="-40"
+        android:visibility="visible"
+        app:srcCompat="@drawable/ovalo_diseno_fondo"
+        tools:layout_editor_absoluteX="219dp"
+        tools:layout_editor_absoluteY="167dp" />
 
     <TextView
         android:id="@+id/textView12"
@@ -253,15 +283,7 @@
         tools:layout_editor_absoluteX="133dp"
         tools:layout_editor_absoluteY="293dp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="168dp"
-        android:layout_height="273dp"
-        android:rotation="-40"
-        android:visibility="visible"
-        app:srcCompat="@drawable/ovalo_diseno_fondo"
-        tools:layout_editor_absoluteX="327dp"
-        tools:layout_editor_absoluteY="356dp" />
+
 
     <ImageButton
         android:id="@+id/imageButton5"
