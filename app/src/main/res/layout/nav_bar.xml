@@ -35,7 +35,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="Inicio"
                 android:scaleType="centerInside"
-                android:src="@drawable/moon" />
+                android:src="@drawable/casa" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -64,7 +64,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="Movimientos"
                 android:scaleType="centerInside"
-                android:src="@drawable/moon" />
+                android:src="@drawable/movimientos" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="Servicios"
                 android:scaleType="centerInside"
-                android:src="@drawable/moon" />
+                android:src="@drawable/servicios" />
 
             <TextView
                 android:layout_width="wrap_content"
