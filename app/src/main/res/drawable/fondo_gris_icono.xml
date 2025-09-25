@@ -1,0 +1,9 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Fondo gris -->
+    <solid android:color="#585858"/>
+
+    <!-- Bordes redondeados (si el view es cuadrado, queda círculo) -->
+    <corners android:radius="6dp"/>
+</shape>
