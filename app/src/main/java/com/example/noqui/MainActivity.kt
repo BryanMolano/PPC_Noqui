@@ -1,5 +1,6 @@
 package com.example.noqui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -32,8 +33,21 @@ class MainActivity : AppCompatActivity() {
         val tv_dinero_total = findViewById<TextView>(R.id.textview_dinero_total)
         val btn_ojo_dinero = findViewById<ImageButton>(R.id.button_ojo_dinero)
 
+        val btn_movimientos = findViewById<ImageButton>(R.id.btnMovimientos)
+        btn_movimientos.setOnClickListener {
+            val intent = Intent(this, Movimientos::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         tv_dinero_disponible.text = "$".plus(dinero_disponible.toString())
         tv_dinero_total.text = "$".plus(dinero_total.toString())
+
+        btn_movimientos.setOnClickListener {
+            val intent = Intent(this, Movimientos::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         btn_ojo_dinero.setOnClickListener {
             if(dinero_visible){

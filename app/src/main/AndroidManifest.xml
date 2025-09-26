@@ -11,18 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Noqui">
-
+        <activity
+            android:name=".Movimientos"
+            android:exported="false" />
         <!-- Login será la pantalla inicial -->
         <activity
             android:name=".Login"
-            android:exported="true">   <!-- OBLIGATORIO si tiene intent-filter -->
+            android:exported="true"> <!-- OBLIGATORIO si tiene intent-filter -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- MainActivity ya no será inicial -->
+        </activity> <!-- MainActivity ya no será inicial -->
         <activity
             android:name=".MainActivity"
             android:exported="true" />
@@ -30,6 +31,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
+
 </manifest>

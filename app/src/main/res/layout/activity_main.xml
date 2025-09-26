@@ -22,21 +22,21 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
+        android:layout_width="23dp"
+        android:layout_height="20dp"
         android:layout_marginTop="1dp"
         android:text="QR"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton10"
+        app:layout_constraintStart_toStartOf="@+id/imageButton10"
         app:layout_constraintTop_toBottomOf="@+id/imageButton10" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
         android:text="Tarjeta"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
         app:layout_constraintTop_toBottomOf="@+id/imageButton11" />
 
     <com.google.android.material.button.MaterialButton
@@ -150,14 +150,13 @@
         android:id="@+id/textview_dinero_disponible"
         android:layout_width="164dp"
         android:layout_height="35dp"
-        android:layout_marginStart="173dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="169dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="124dp"
         android:text="*****"
         android:textAlignment="center"
         android:textSize="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -165,41 +164,40 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="3dp"
         android:fontFamily=""
         android:text="Depósito Bajo Monto"
         android:textSize="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton7"
+        app:layout_constraintEnd_toStartOf="@+id/button_ojo_dinero"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="wrap_content"
+        android:layout_width="35dp"
         android:layout_height="wrap_content"
 
         android:layout_marginStart="188dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="188dp"
         android:text="Total:"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_dinero_disponible" />
 
     <TextView
         android:id="@+id/textview_dinero_total"
-        android:layout_width="168dp"
+        android:layout_width="wrap_content"
         android:layout_height="23dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="184dp"
+        android:layout_marginEnd="184dp"
         android:text="*****"
         android:textAlignment="center"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -208,21 +206,20 @@
         android:layout_width="32dp"
         android:layout_height="24dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="96dp"
-        android:background="@android:color/transparent"
 
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="112dp"
+        android:background="@android:color/transparent"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/imageButton2"
         app:srcCompat="@drawable/eye_solid_full" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="133dp"
+        android:layout_height="33dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="117dp"
         android:text="Más Usados"
@@ -333,25 +330,25 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:srcCompat="@drawable/tarjetav2" />
 
+
     <TextView
         android:id="@+id/textView9"
         android:layout_width="61dp"
         android:layout_height="17dp"
-        android:layout_marginStart="23dp"
         android:layout_marginTop="1dp"
         android:text="Facturas"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton5"
+        app:layout_constraintStart_toStartOf="@+id/imageButton5"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
-
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="2dp"
         android:text="Caja Fuerte"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton8"
+        app:layout_constraintStart_toStartOf="@+id/imageButton8"
         app:layout_constraintTop_toBottomOf="@+id/imageButton8" />
 
     <include

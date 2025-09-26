@@ -7,114 +7,50 @@
 
     <LinearLayout
         android:id="@+id/navBar"
-        android:layout_width="304dp"
+        android:layout_width="0dp"
         android:layout_height="65dp"
         android:layout_gravity="bottom"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="700dp"
+        android:layout_marginEnd="4dp"
         android:background="@drawable/fondo_gris_navbar"
         android:orientation="horizontal"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton12"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
-        <!-- Botón Inicio -->
-        <LinearLayout
-            android:id="@+id/btnInicioContainer"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/btnInicio"
+            android:layout_width="94dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/nv_boton_inicio" />
 
-            <ImageButton
-                android:id="@+id/btnInicio"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:background="@android:color/transparent"
-                android:contentDescription="Inicio"
-                android:scaleType="centerInside"
-                android:src="@drawable/casa" />
+        <ImageButton
+            android:id="@+id/btnMovimientos"
+            android:layout_width="107dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/nv_boton_movimientos" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Inicio"
-                android:textColor="@android:color/white"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <!-- Botón Movimientos -->
-        <LinearLayout
-            android:id="@+id/btnMovimientosContainer"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/btnMovimientos"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:background="@android:color/transparent"
-                android:contentDescription="Movimientos"
-                android:scaleType="centerInside"
-                android:src="@drawable/movimientos" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Movimientos"
-                android:textColor="@android:color/white"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <!-- Botón Servicios -->
-        <LinearLayout
-            android:id="@+id/btnServiciosContainer"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/btnServicios"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:background="@android:color/transparent"
-                android:contentDescription="Servicios"
-                android:scaleType="centerInside"
-                android:src="@drawable/servicios" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Servicios"
-                android:textColor="@android:color/white"
-                android:textSize="12sp" />
-        </LinearLayout>
-
+        <ImageButton
+            android:id="@+id/btnServicios"
+            android:layout_width="99dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/nv_boton_servicios" />
     </LinearLayout>
 
     <ImageButton
         android:id="@+id/imageButton12"
         android:layout_width="wrap_content"
         android:layout_height="65dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="700dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="12dp"
         android:adjustViewBounds="true"
         android:background="@drawable/fondo_azul_boton_navbar"
         android:scaleType="centerInside"
@@ -122,6 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/navBar"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/outline_attach_money_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
