@@ -12,9 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noqui">
         <activity
-            android:name=".Movimientos"
+            android:name=".activity_tarjeta_movimientos"
             android:exported="false" />
-        <!-- Login será la pantalla inicial -->
+        <activity
+            android:name=".activity_congelar_tarjeta"
+            android:exported="false" />
+        <activity
+            android:name=".activity_tarjeta"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos"
+            android:exported="false" /> <!-- Login será la pantalla inicial -->
         <activity
             android:name=".Login"
             android:exported="true"> <!-- OBLIGATORIO si tiene intent-filter -->
