@@ -77,7 +77,7 @@
         app:iconGravity="textStart"
         app:iconPadding="8dp"
         app:iconTint="@android:color/white"
-        app:layout_constraintStart_toEndOf="@+id/btnMiNegocio"
+        app:layout_constraintStart_toEndOf="@+id/btnCajaFuerte"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
@@ -218,7 +218,7 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="133dp"
+        android:layout_width="157dp"
         android:layout_height="33dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="117dp"
@@ -260,7 +260,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnMiNegocio"
+        android:id="@+id/btnCajaFuerte"
         android:layout_width="135dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"

@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 
 import android.widget.ImageButton
 import android.widget.TextView
+import com.google.android.material.button.MaterialButton
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,6 +37,12 @@ class MainActivity : AppCompatActivity() {
         val btn_movimientos = findViewById<ImageButton>(R.id.btnMovimientos)
         btn_movimientos.setOnClickListener {
             val intent = Intent(this, Movimientos::class.java)
+            startActivity(intent)
+            finish()
+        }
+        val btn_caja_fuerte = findViewById<MaterialButton>(R.id.btnCajaFuerte)
+        btn_caja_fuerte.setOnClickListener {
+            val intent = Intent(this, caja_fuerte::class.java)
             startActivity(intent)
             finish()
         }

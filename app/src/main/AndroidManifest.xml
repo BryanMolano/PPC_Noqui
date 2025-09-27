@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noqui">
         <activity
+            android:name=".caja_fuerte"
+            android:exported="false" />
+        <activity
             android:name=".activity_tarjeta_movimientos"
             android:exported="false" />
         <activity
