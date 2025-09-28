@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noqui">
         <activity
+            android:name=".Pagar_factura_servicios"
+            android:exported="false" />
+        <activity
+            android:name=".Pagar_factura_celular"
+            android:exported="false" />
+        <activity
             android:name=".Servicios"
             android:exported="false" />
         <activity
