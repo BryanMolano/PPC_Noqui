@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/servicios_texto_servicios" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/btn_regresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -53,7 +53,7 @@
         android:textColor="#FFFFFF"
         android:textSize="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton12" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_celular_movistar" />
 
     <TextView
         android:id="@+id/textView16"
@@ -65,125 +65,125 @@
         android:textColor="#FFFFFF"
         android:textSize="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton18" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_servicios_1" />
 
     <ImageButton
-        android:id="@+id/imageButton17"
+        android:id="@+id/btn_internet_wom"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="160dp"
         android:background="@drawable/fondo_gris_oscuro_servicios_boton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton16"
+        app:layout_constraintStart_toEndOf="@+id/btn_internet_claro"
         app:layout_constraintTop_toBottomOf="@+id/textView16"
         app:srcCompat="@drawable/servicios_boton_wom" />
 
     <ImageButton
-        android:id="@+id/imageButton16"
+        android:id="@+id/btn_internet_claro"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/fondo_gris_oscuro_servicios_boton"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton17"
-        app:layout_constraintStart_toEndOf="@+id/imageButton15"
+        app:layout_constraintEnd_toStartOf="@+id/btn_internet_wom"
+        app:layout_constraintStart_toEndOf="@+id/btn_internet_movistar"
         app:layout_constraintTop_toBottomOf="@+id/textView16"
         app:srcCompat="@drawable/servicios_boton_claro" />
 
     <ImageButton
-        android:id="@+id/imageButton12"
+        android:id="@+id/btn_celular_movistar"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/fondo_gris_oscuro_servicios_boton"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton13"
+        app:layout_constraintEnd_toStartOf="@+id/btn_celular_claro"
         app:layout_constraintStart_toStartOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:srcCompat="@drawable/servicios_boton_movistar" />
 
     <ImageButton
-        android:id="@+id/imageButton14"
+        android:id="@+id/btn_celular_wom"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="160dp"
         android:background="@drawable/fondo_gris_oscuro_servicios_boton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton13"
+        app:layout_constraintStart_toEndOf="@+id/btn_celular_claro"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:srcCompat="@drawable/servicios_boton_wom" />
 
     <ImageButton
-        android:id="@+id/imageButton13"
+        android:id="@+id/btn_celular_claro"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/fondo_gris_oscuro_servicios_boton"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton14"
-        app:layout_constraintStart_toEndOf="@+id/imageButton12"
+        app:layout_constraintEnd_toStartOf="@+id/btn_celular_wom"
+        app:layout_constraintStart_toEndOf="@+id/btn_celular_movistar"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:srcCompat="@drawable/servicios_boton_claro" />
 
     <ImageButton
-        android:id="@+id/imageButton18"
+        android:id="@+id/btn_servicios_1"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/fondo_gris_oscuro_servicios_boton"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton19"
+        app:layout_constraintEnd_toStartOf="@+id/btn_servicios_2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:srcCompat="@drawable/servicios_boton_movistar" />
+        app:srcCompat="@drawable/servicios_boton_enel" />
 
     <ImageButton
-        android:id="@+id/imageButton19"
+        android:id="@+id/btn_servicios_2"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/fondo_gris_oscuro_servicios_boton"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton20"
-        app:layout_constraintStart_toEndOf="@+id/imageButton18"
+        app:layout_constraintEnd_toStartOf="@+id/btn_servicios_3"
+        app:layout_constraintStart_toEndOf="@+id/btn_servicios_1"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:srcCompat="@drawable/servicios_boton_movistar" />
+        app:srcCompat="@drawable/servicios_boton_enel" />
 
     <ImageButton
-        android:id="@+id/imageButton20"
+        android:id="@+id/btn_servicios_3"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/fondo_gris_oscuro_servicios_boton"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton21"
-        app:layout_constraintStart_toEndOf="@+id/imageButton19"
+        app:layout_constraintEnd_toStartOf="@+id/btn_servicios_4"
+        app:layout_constraintStart_toEndOf="@+id/btn_servicios_2"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
         app:srcCompat="@drawable/servicios_boton_movistar" />
 
     <ImageButton
-        android:id="@+id/imageButton21"
+        android:id="@+id/btn_servicios_4"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="84dp"
         android:background="@drawable/fondo_gris_oscuro_servicios_boton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton20"
+        app:layout_constraintStart_toEndOf="@+id/btn_servicios_3"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
         app:srcCompat="@drawable/servicios_boton_movistar" />
 
     <ImageButton
-        android:id="@+id/imageButton15"
+        android:id="@+id/btn_internet_movistar"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/fondo_gris_oscuro_servicios_boton"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton16"
+        app:layout_constraintEnd_toStartOf="@+id/btn_internet_claro"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView16"
