@@ -307,7 +307,7 @@
         app:srcCompat="@drawable/qr" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/btnCajaFuerte2"
         android:layout_width="61dp"
         android:layout_height="63dp"
         android:layout_marginStart="32dp"
@@ -326,7 +326,7 @@
         android:layout_marginStart="34dp"
         android:layout_marginTop="26dp"
         android:background="@drawable/fondo_grisoscuro_icono"
-        app:layout_constraintStart_toEndOf="@+id/imageButton8"
+        app:layout_constraintStart_toEndOf="@+id/btnCajaFuerte2"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:srcCompat="@drawable/tarjetav2" />
 
@@ -347,9 +347,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:text="Caja Fuerte"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton8"
-        app:layout_constraintStart_toStartOf="@+id/imageButton8"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton8" />
+        app:layout_constraintEnd_toEndOf="@+id/btnCajaFuerte2"
+        app:layout_constraintStart_toStartOf="@+id/btnCajaFuerte2"
+        app:layout_constraintTop_toBottomOf="@+id/btnCajaFuerte2" />
 
     <include
         layout="@layout/nav_bar"

@@ -64,17 +64,15 @@
         android:id="@+id/imageView9"
         android:layout_width="322dp"
         android:layout_height="154dp"
-        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.261"
         app:srcCompat="@drawable/caja_fuerte_degradado_caja_fuerte" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/tv_dinero_caja_fuerte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="224dp"
@@ -112,7 +110,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/tv_dinero_a_meter_caja_fuerte"
         android:layout_width="119dp"
         android:layout_height="42dp"
         android:layout_marginStart="4dp"
@@ -124,18 +122,19 @@
         app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
     <ImageButton
-        android:id="@+id/imageButton14"
+        android:id="@+id/btn_restar_caja_fuerte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="30dp"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton15"
-        app:srcCompat="@drawable/boton_caja_fuerte" />
+        app:layout_constraintEnd_toStartOf="@+id/btn_sumar_caja_fuerte"
+        app:srcCompat="@drawable/boton_caja_fuerte"
+        />
 
     <ImageButton
-        android:id="@+id/imageButton15"
+        android:id="@+id/btn_sumar_caja_fuerte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
@@ -155,8 +154,8 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton15"
-        app:layout_constraintTop_toTopOf="@+id/imageButton15" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_sumar_caja_fuerte"
+        app:layout_constraintTop_toTopOf="@+id/btn_sumar_caja_fuerte" />
 
     <TextView
         android:id="@+id/textView18"
@@ -168,14 +167,29 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton14"
-        app:layout_constraintTop_toTopOf="@+id/imageButton14" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_restar_caja_fuerte"
+        app:layout_constraintTop_toTopOf="@+id/btn_restar_caja_fuerte" />
 
     <include
         layout="@layout/nav_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"/>
+
+    <ImageButton
+        android:id="@+id/caja_fuerte_btn_aceptar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="123dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="87dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10"
+        app:srcCompat="@drawable/caja_fuerte_aceptar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
