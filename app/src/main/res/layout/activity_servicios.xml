@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Servicios"
+    android:background="#161622"
+    >
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/servicios_texto_servicios" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lg_boton_volver"
+        android:background="@android:color/transparent"
+        />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
+        android:text="Celulares y paquetes"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="Servicios Públicos"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton12" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="Internet, telefonía y hogar"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton18" />
+
+    <ImageButton
+        android:id="@+id/imageButton17"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="160dp"
+        android:background="@drawable/fondo_gris_oscuro_servicios_boton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:srcCompat="@drawable/servicios_boton_wom" />
+
+    <ImageButton
+        android:id="@+id/imageButton16"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/fondo_gris_oscuro_servicios_boton"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton17"
+        app:layout_constraintStart_toEndOf="@+id/imageButton15"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:srcCompat="@drawable/servicios_boton_claro" />
+
+    <ImageButton
+        android:id="@+id/imageButton12"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/fondo_gris_oscuro_servicios_boton"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton13"
+        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:srcCompat="@drawable/servicios_boton_movistar" />
+
+    <ImageButton
+        android:id="@+id/imageButton14"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="160dp"
+        android:background="@drawable/fondo_gris_oscuro_servicios_boton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton13"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:srcCompat="@drawable/servicios_boton_wom" />
+
+    <ImageButton
+        android:id="@+id/imageButton13"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/fondo_gris_oscuro_servicios_boton"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton14"
+        app:layout_constraintStart_toEndOf="@+id/imageButton12"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:srcCompat="@drawable/servicios_boton_claro" />
+
+    <ImageButton
+        android:id="@+id/imageButton18"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/fondo_gris_oscuro_servicios_boton"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton19"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:srcCompat="@drawable/servicios_boton_movistar" />
+
+    <ImageButton
+        android:id="@+id/imageButton19"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/fondo_gris_oscuro_servicios_boton"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton20"
+        app:layout_constraintStart_toEndOf="@+id/imageButton18"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:srcCompat="@drawable/servicios_boton_movistar" />
+
+    <ImageButton
+        android:id="@+id/imageButton20"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/fondo_gris_oscuro_servicios_boton"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton21"
+        app:layout_constraintStart_toEndOf="@+id/imageButton19"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:srcCompat="@drawable/servicios_boton_movistar" />
+
+    <ImageButton
+        android:id="@+id/imageButton21"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="84dp"
+        android:background="@drawable/fondo_gris_oscuro_servicios_boton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton20"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:srcCompat="@drawable/servicios_boton_movistar" />
+
+    <ImageButton
+        android:id="@+id/imageButton15"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/fondo_gris_oscuro_servicios_boton"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton16"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:srcCompat="@drawable/servicios_boton_movistar" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:alpha="0.4"
+        android:text="Facturas del hogar con empresas nacionales"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:alpha="0.4"
+        android:text="Servicios de operadores"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <include
+        layout="@layout/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"/>
+    <include
+        android:id="@+id/azul"
+        layout="@layout/activity_boton_azul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

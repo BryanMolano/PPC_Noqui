@@ -40,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageButton11" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnMetas"
+        android:id="@+id/btn_enviar"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginStart="23dp"
@@ -178,12 +178,11 @@
         android:id="@+id/textView4"
         android:layout_width="35dp"
         android:layout_height="wrap_content"
-
         android:layout_marginStart="188dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="188dp"
         android:text="Total:"
-        android:textSize="14dp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_dinero_disponible" />
@@ -236,7 +235,7 @@
         android:text="Servicios"
         android:textSize="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMetas" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_enviar" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnTransfiya"
@@ -280,7 +279,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/btn_servicios"
         android:layout_width="61dp"
         android:layout_height="63dp"
         android:layout_marginStart="23dp"
@@ -307,7 +306,7 @@
         app:srcCompat="@drawable/qr" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/btnCajaFuerte2"
         android:layout_width="61dp"
         android:layout_height="63dp"
         android:layout_marginStart="32dp"
@@ -315,7 +314,7 @@
         android:background="@drawable/fondo_grisoscuro_icono"
         android:scaleType="centerInside"
 
-        app:layout_constraintStart_toEndOf="@+id/imageButton5"
+        app:layout_constraintStart_toEndOf="@+id/btn_servicios"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:srcCompat="@drawable/cajafuertev2" />
 
@@ -326,7 +325,7 @@
         android:layout_marginStart="34dp"
         android:layout_marginTop="26dp"
         android:background="@drawable/fondo_grisoscuro_icono"
-        app:layout_constraintStart_toEndOf="@+id/imageButton8"
+        app:layout_constraintStart_toEndOf="@+id/btnCajaFuerte2"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:srcCompat="@drawable/tarjetav2" />
 
@@ -337,9 +336,9 @@
         android:layout_height="17dp"
         android:layout_marginTop="1dp"
         android:text="Facturas"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton5"
-        app:layout_constraintStart_toStartOf="@+id/imageButton5"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_servicios"
+        app:layout_constraintStart_toStartOf="@+id/btn_servicios"
+        app:layout_constraintTop_toBottomOf="@+id/btn_servicios" />
 
     <TextView
         android:id="@+id/textView10"
@@ -347,9 +346,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:text="Caja Fuerte"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton8"
-        app:layout_constraintStart_toStartOf="@+id/imageButton8"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton8" />
+        app:layout_constraintEnd_toEndOf="@+id/btnCajaFuerte2"
+        app:layout_constraintStart_toStartOf="@+id/btnCajaFuerte2"
+        app:layout_constraintTop_toBottomOf="@+id/btnCajaFuerte2" />
 
     <include
         layout="@layout/nav_bar"

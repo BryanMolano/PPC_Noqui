@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noqui">
         <activity
+            android:name=".Servicios"
+            android:exported="false" />
+        <activity
+            android:name=".enviar"
+            android:exported="false" />
+        <activity
             android:name=".boton_azul"
             android:exported="false" />
         <activity
