@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         val btn_movimientos = findViewById<ImageButton>(R.id.btnMovimientos)
         val btn_enviar = findViewById<MaterialButton>(R.id.btn_enviar)
         val btn_servicios= findViewById<ImageButton>(R.id.btn_servicios)
+        val btn_tarjeta = findViewById<ImageButton>(R.id.btnTarjeta)
 
         btn_enviar.setOnClickListener {
             val intent = Intent(this, enviar::class.java)
@@ -67,6 +68,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Servicios::class.java)
             startActivity(intent)
         }
+        btn_tarjeta.setOnClickListener {
+            val intent = Intent(this, activity_tarjeta::class.java)
+            startActivity(intent)
+        }
+
 
         tv_dinero_disponible.text = "$$dinero_disponible"
         tv_dinero_total.text = "$$dinero_total"

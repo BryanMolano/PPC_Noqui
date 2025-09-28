@@ -9,17 +9,18 @@
     tools:context=".activity_congelar_tarjeta">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/separadorCongTj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/mv_menu_separator"
-        tools:layout_editor_absoluteY="126dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mv_menu_separator" />
 
     <TextView
-        android:id="@+id/iniciarSesionText4"
+        android:id="@+id/txCongelarTj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -32,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/botonVolver3"
+        android:id="@+id/botonVolverCongTj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -41,4 +42,69 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lg_boton_volver" />
+
+    <ImageView
+        android:id="@+id/imgDigital"
+        android:layout_width="353dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separadorCongTj"
+        app:srcCompat="@drawable/tarjeta_congelar_boton" />
+
+    <ImageView
+        android:id="@+id/imgFisica"
+        android:layout_width="353dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="416dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/tarjeta_congelar_boton" />
+
+    <Switch
+        android:id="@+id/switchDigitalTj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgDigital" />
+
+    <TextView
+        android:id="@+id/txDigitalTj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="20dp"
+        android:text="¿Congelar tu tarjeta digital?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgDigital" />
+
+    <TextView
+        android:id="@+id/txFisicaTj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="20dp"
+        android:text="¿Congelar tu tarjeta física?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgFisica" />
+
+    <Switch
+        android:id="@+id/switchFisicaTj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgFisica" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
