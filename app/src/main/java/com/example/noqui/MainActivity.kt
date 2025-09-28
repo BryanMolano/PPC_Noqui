@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         val tv_dinero_total = findViewById<TextView>(R.id.textview_dinero_total)
         val btn_ojo_dinero = findViewById<ImageButton>(R.id.button_ojo_dinero)
         val btn_movimientos = findViewById<ImageButton>(R.id.btnMovimientos)
+        val btn_enviar = findViewById<ImageButton>(R.id.btnEnvia)
 
         btnFondoba.setOnClickListener {
             azul.visibility = View.GONE
@@ -57,6 +58,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        btn_enviar.setOnClickListener {
+            val intent = Intent(this, enviar::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         val btn_caja_fuerte = findViewById<MaterialButton>(R.id.btnCajaFuerte)
         btn_caja_fuerte.setOnClickListener {
             val intent = Intent(this, caja_fuerte::class.java)

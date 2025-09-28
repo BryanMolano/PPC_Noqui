@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#161622"
+    tools:context=".enviar">
+
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lg_boton_volver" />
+
+    <TextView
+        android:id="@+id/iniciarSesionText6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Envíar Plata"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="334dp"
+        android:layout_height="424dp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="192dp"
+        android:alpha="0.3"
+        android:rotation="-40"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ovalo_diseno_fondo" />
+
+    <EditText
+        android:id="@+id/editNumero"
+        android:layout_width="312dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="41dp"
+        android:background="@drawable/rounded_edittext"
+        android:elevation="4dp"
+        android:gravity="top|start"
+        android:hint="Celular"
+        android:inputType="phone"
+        android:lines="1"
+        android:maxLines="5"
+        android:minLines="1"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:textColorHint="#6C6969"
+        android:translationZ="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iniciarSesionText6" />
+
+    <EditText
+        android:id="@+id/editPlata"
+        android:layout_width="313dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_edittext"
+        android:elevation="4dp"
+        android:gravity="top|start"
+        android:hint="¿Cuánto?"
+        android:inputType="numberDecimal"
+        android:lines="1"
+        android:maxLines="5"
+        android:minLines="1"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:textColorHint="#6C6969"
+        android:translationZ="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+
+    <EditText
+        android:id="@+id/editMsg"
+        android:layout_width="312dp"
+        android:layout_height="wrap_content"
+        android:minHeight="89dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_edittext"
+        android:elevation="4dp"
+        android:gravity="top|start"
+        android:hint="Mensaje"
+        android:inputType="textMultiLine|textCapSentences"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:textColorHint="#6C6969"
+        android:translationZ="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPlata" />
+
+
+
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="327dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        android:text="Revisa bien el número para enviarle a la persona correcta"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNumero" />
+
+    <ImageButton
+        android:id="@+id/btnSigue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editMsg"
+        app:layout_constraintVertical_bias="0.94"
+        app:srcCompat="@drawable/view_enviar_sigue" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
