@@ -2,6 +2,7 @@ package com.example.noqui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,7 +20,24 @@ class Movimientos : AppCompatActivity() {
             insets
         }
 
+        val btnAzulnv = findViewById<ImageButton>(R.id.btnAzulnv) //este es el boton azul de la barra de navegación
+        val btnAzulba = findViewById<ImageButton>(R.id.btnAzul) //este es el boton azul de la activity del boton azul
+        val btnFondoba = findViewById<ImageButton>(R.id.btnFondo)
+        val azul = findViewById<View>(R.id.azul)
+
+
         val btn_main = findViewById<ImageButton>(R.id.btnInicio)
+
+        btnFondoba.setOnClickListener {
+            azul.visibility = View.GONE
+        }
+        btnAzulnv.setOnClickListener {
+            azul.visibility = View.VISIBLE
+        }
+        btnAzulba.setOnClickListener {
+            azul.visibility = View.GONE
+        }
+
         btn_main.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import android.widget.ImageButton
 import android.widget.TextView
 import com.google.android.material.button.MaterialButton
+import android.view.View
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,11 +31,27 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val btnAzulnv = findViewById<ImageButton>(R.id.btnAzulnv) //este es el boton azul de la barra de navegación
+        val btnAzulba = findViewById<ImageButton>(R.id.btnAzul) //este es el boton azul de la activity del boton azul
+        val btnFondoba = findViewById<ImageButton>(R.id.btnFondo)
+        val azul = findViewById<View>(R.id.azul)
+
         val tv_dinero_disponible = findViewById<TextView>(R.id.textview_dinero_disponible)
         val tv_dinero_total = findViewById<TextView>(R.id.textview_dinero_total)
         val btn_ojo_dinero = findViewById<ImageButton>(R.id.button_ojo_dinero)
-
         val btn_movimientos = findViewById<ImageButton>(R.id.btnMovimientos)
+
+        btnFondoba.setOnClickListener {
+            azul.visibility = View.GONE
+        }
+        btnAzulnv.setOnClickListener {
+            azul.visibility = View.VISIBLE
+        }
+        btnAzulba.setOnClickListener {
+            azul.visibility = View.GONE
+        }
+
         btn_movimientos.setOnClickListener {
             val intent = Intent(this, Movimientos::class.java)
             startActivity(intent)

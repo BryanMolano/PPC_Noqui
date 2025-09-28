@@ -49,4 +49,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"/>
 
+    <include
+        android:id="@+id/azul"
+        layout="@layout/activity_boton_azul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
