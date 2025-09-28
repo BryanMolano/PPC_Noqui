@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btn_tarjeta.setOnClickListener {
-            val intent = Intent(this, activity_tarjeta::class.java)
+            val intent = Intent(this, tarjeta::class.java)
             startActivity(intent)
         }
 
