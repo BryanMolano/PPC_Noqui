@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#161622"
-    tools:context=".activity_tarjeta">
+    tools:context=".tarjeta">
 
     <ImageButton
         android:id="@+id/btnImgConfigTj"
@@ -163,7 +163,7 @@
         android:layout_width="114dp"
         android:layout_height="114dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="12dp"
         android:alpha="0.4"
         app:layout_constraintEnd_toEndOf="@+id/Tarjeta"
         app:layout_constraintTop_toBottomOf="@+id/separador1"
@@ -299,6 +299,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="168dp"
         android:layout_marginTop="112dp"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/Tarjeta"
         app:layout_constraintTop_toBottomOf="@+id/separador1" />
 

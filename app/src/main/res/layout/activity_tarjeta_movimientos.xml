@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#161622"
-    tools:context=".activity_tarjeta_movimientos">
+    tools:context=".tarjeta_movimientos">
 
     <ImageView
         android:id="@+id/separadorMovTj"

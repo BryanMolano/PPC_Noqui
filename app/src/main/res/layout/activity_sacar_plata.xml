@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#161622"
+    tools:context=".sacar_plata">
+
+    <TextView
+        android:id="@+id/txSacarPlata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Sacar Plata"
+        android:textColor="#FFFFFF"
+        android:textSize="23sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/botonVolverSacarPlat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lg_boton_volver" />
+
+    <TextView
+        android:id="@+id/codigoSacarPlata"
+        android:layout_width="313dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="124dp"
+        android:background="@drawable/rounded_edittext"
+        android:text="*****"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CantidadRetiro" />
+
+    <TextView
+        android:id="@+id/txAviso"
+        android:layout_width="313dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/rounded_edittext"
+        android:text="Tu codigo vence en \t\t\t\t\t\t\t minutos\n \nComparte este codigo con el encargado\n del corresponsal"
+        android:textAlignment="center"
+        android:textColor="#69FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codigoSacarPlata" />
+
+    <ImageButton
+        android:id="@+id/btnVerCodigo"
+        android:layout_width="36dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="4dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitCenter"
+        android:src="@drawable/eye_solid_full"
+        app:layout_constraintStart_toStartOf="@+id/codigoSacarPlata"
+        app:layout_constraintTop_toTopOf="@+id/codigoSacarPlata"
+        tools:srcCompat="@drawable/eye_solid_full" />
+
+    <TextView
+        android:id="@+id/tiempoCodigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="8dp"
+        android:text="30:00"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/txAviso"
+        app:layout_constraintTop_toTopOf="@+id/txAviso" />
+
+    <EditText
+        android:id="@+id/CantidadRetiro"
+        android:layout_width="313dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:inputType="text"
+        android:text="¿Cuanto a retirar?"
+        android:textColor="#69FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txSacarPlata" />
+
+    <Button
+        android:id="@+id/btnRetirar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retirar"
+        tools:layout_editor_absoluteX="183dp"
+        tools:layout_editor_absoluteY="471dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

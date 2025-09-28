@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noqui">
         <activity
+            android:name=".sacar_plata"
+            android:exported="false" />
+        <activity
+            android:name=".tarjeta_configuracion"
+            android:exported="false" />
+        <activity
+            android:name=".tarjeta_ayuda"
+            android:exported="false" />
+        <activity
             android:name=".Servicios"
             android:exported="false" />
         <activity
@@ -24,13 +33,13 @@
             android:name=".caja_fuerte"
             android:exported="false" />
         <activity
-            android:name=".activity_tarjeta_movimientos"
+            android:name=".tarjeta_movimientos"
             android:exported="false" />
         <activity
-            android:name=".activity_congelar_tarjeta"
+            android:name=".congelar_tarjeta"
             android:exported="false" />
         <activity
-            android:name=".activity_tarjeta"
+            android:name=".tarjeta"
             android:exported="false" />
         <activity
             android:name=".Movimientos"
