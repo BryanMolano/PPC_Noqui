@@ -9,17 +9,18 @@
     tools:context=".activity_tarjeta_movimientos">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/separadorMovTj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/mv_menu_separator"
-        tools:layout_editor_absoluteY="126dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mv_menu_separator" />
 
     <TextView
-        android:id="@+id/iniciarSesionText5"
+        android:id="@+id/txMovimientosTj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -32,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/botonVolver4"
+        android:id="@+id/botonVolverMovmTj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
