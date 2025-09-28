@@ -56,6 +56,17 @@ class MainActivity : AppCompatActivity() {
         val tv_dinero_total = findViewById<TextView>(R.id.textview_dinero_total)
         val btn_ojo_dinero = findViewById<ImageButton>(R.id.button_ojo_dinero)
         val btn_movimientos = findViewById<ImageButton>(R.id.btnMovimientos)
+        val btn_enviar = findViewById<MaterialButton>(R.id.btn_enviar)
+        val btn_servicios= findViewById<ImageButton>(R.id.btn_servicios)
+
+        btn_enviar.setOnClickListener {
+            val intent = Intent(this, enviar::class.java)
+            startActivity(intent)
+        }
+        btn_servicios.setOnClickListener {
+            val intent = Intent(this, Servicios::class.java)
+            startActivity(intent)
+        }
 
         tv_dinero_disponible.text = "$$dinero_disponible"
         tv_dinero_total.text = "$$dinero_total"
@@ -77,14 +88,14 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("dinero_disponible", dinero_disponible)
             intent.putExtra("dinero_caja_fuerte", dinero_caja_fuerte)
             intent.putExtra("dinero_total", dinero_total)
-            cajaFuerteLauncher.launch(intent) // 🚨 Ojo: ya no usas finish()
+            cajaFuerteLauncher.launch(intent)
         }
         btn_caja_fuerte2.setOnClickListener {
             val intent = Intent(this, caja_fuerte::class.java)
             intent.putExtra("dinero_disponible", dinero_disponible)
             intent.putExtra("dinero_caja_fuerte", dinero_caja_fuerte)
             intent.putExtra("dinero_total", dinero_total)
-            cajaFuerteLauncher.launch(intent) // 🚨 Ojo: ya no usas finish()
+            cajaFuerteLauncher.launch(intent)
         }
 
         btn_ojo_dinero.setOnClickListener {
