@@ -52,7 +52,7 @@ class Servicios : AppCompatActivity() {
                     val resultIntent= Intent()
                     resultIntent.putExtra("nuevo_dinero", nuevo_dinero)
                     setResult(Activity.RESULT_OK, resultIntent)
-                    //finish()
+                    finish()
                 }
             }
         }

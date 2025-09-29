@@ -44,6 +44,7 @@
         <activity
             android:name=".tarjeta"
             android:exported="false" />
+        <activity android:name=".Pagar_factura_celular"/>
         <activity
             android:name=".Movimientos"
             android:exported="false" /> <!-- Login será la pantalla inicial -->
