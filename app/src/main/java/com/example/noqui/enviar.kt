@@ -1,6 +1,5 @@
 package com.example.noqui
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +25,7 @@ class enviar : AppCompatActivity() {
 
 
         val editPlata = findViewById<EditText>(R.id.editPlata)
-        val editNumero = findViewById<EditText>(R.id.editNumero)
+        val editNumero = findViewById<EditText>(R.id.edit_numero)
         val editMsg = findViewById<EditText>(R.id.editMsg)
         val btnSigue = findViewById<ImageButton>(R.id.btnSigue)
         val btnAtras = findViewById<ImageView>(R.id.btnAtras)

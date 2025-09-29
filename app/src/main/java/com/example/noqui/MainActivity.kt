@@ -12,6 +12,7 @@ import com.google.android.material.button.MaterialButton
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import android.app.Activity
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +36,20 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    val servicios_launcher= registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+            result->
+        if(result.resultCode== Activity.RESULT_OK){
+            val data=result.data
+            if(data!=null){
+                dinero_disponible=data.getIntExtra("nuevo_dinero",dinero_disponible)
+                dinero_total =dinero_disponible+dinero_caja_fuerte
+                findViewById<TextView>(R.id.textview_dinero_disponible).text = "$$dinero_disponible"
+                findViewById<TextView>(R.id.textview_dinero_total).text = "$$dinero_total"
+
+                Toast.makeText(this, "Dinero actualizado a: $dinero_disponible", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +82,8 @@ class MainActivity : AppCompatActivity() {
         }
         btn_servicios.setOnClickListener {
             val intent = Intent(this, Servicios::class.java)
-            startActivity(intent)
+            intent.putExtra("dinero_disponible", dinero_disponible)
+            servicios_launcher.launch(intent)
         }
         btn_tarjeta.setOnClickListener {
             val intent = Intent(this, tarjeta::class.java)
@@ -121,5 +137,16 @@ class MainActivity : AppCompatActivity() {
                 dinero_visible = true
             }
         }
+
     }
+
+
+
+
+
+
+
+
+
+
 }

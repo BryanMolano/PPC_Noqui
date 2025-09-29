@@ -9,22 +9,12 @@
 
     tools:context=".Pagar_factura_celular">
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/lg_boton_volver" />
-
     <TextView
-        android:id="@+id/iniciarSesionText6"
+        android:id="@+id/txtview_factura_celular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Pagar Factura de celular"
         android:textColor="#FFFFFF"
@@ -47,7 +37,7 @@
 
 
     <EditText
-        android:id="@+id/editNumero"
+        android:id="@+id/edit_numero"
         android:layout_width="312dp"
         android:layout_height="43dp"
         android:layout_marginStart="36dp"
@@ -68,10 +58,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iniciarSesionText6" />
+        app:layout_constraintTop_toBottomOf="@+id/txtview_factura_celular" />
 
     <EditText
-        android:id="@+id/editPlata"
+        android:id="@+id/edit_dinero"
         android:layout_width="313dp"
         android:layout_height="44dp"
         android:layout_marginStart="36dp"
@@ -89,10 +79,10 @@
         android:textColorHint="#6C6969"
         android:translationZ="2dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNumero" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_numero" />
 
     <ImageButton
-        android:id="@+id/btnSigue"
+        android:id="@+id/btn_continuar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -100,6 +90,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/view_enviar_sigue" />
+
+    <ImageButton
+        android:id="@+id/btn_volver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="7dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lg_boton_volver" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,24 +12,17 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 
 class Servicios : AppCompatActivity() {
-    private var dinero_disponible: Int = 5000
 
-    val celular_launcher= registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-            result->
-        if(result.resultCode== Activity.RESULT_OK){
-            val data=result.data
-            if(data!=null){
-                dinero_disponible=data.getIntExtra("nuevo_dinero",dinero_disponible)
-                Toast.makeText(this, "Dinero actualizado a: $dinero_disponible", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_servicios)
+
+        val dinero_disponible_de_main=intent.getIntExtra("dinero_disponible",0)
 
         val btn_regresar = findViewById<ImageButton>(R.id.btn_regresar)
         val btn_celular_movistar = findViewById<ImageButton>(R.id.btn_celular_movistar)
@@ -44,20 +37,36 @@ class Servicios : AppCompatActivity() {
         val btn_servicios_4 = findViewById<ImageButton>(R.id.btn_servicios_4)
 
         btn_regresar.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            setResult(Activity.RESULT_CANCELED)
             finish()
         }
 
+
+
+        val pagar_launcher=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
+            if(result.resultCode == Activity.RESULT_OK){
+                val data = result.data
+                if(data!=null){
+                    val nuevo_dinero=data.getIntExtra("nuevo_dinero", dinero_disponible_de_main)
+
+                    val resultIntent= Intent()
+                    resultIntent.putExtra("nuevo_dinero", nuevo_dinero)
+                    setResult(Activity.RESULT_OK, resultIntent)
+                    //finish()
+                }
+            }
+        }
+
         btn_celular_movistar.setOnClickListener {
-            abrirPagoCelular("movistar", dinero_disponible)
+            abrirPagoCelular("movistar", dinero_disponible_de_main,pagar_launcher)
+
         }
         btn_celular_claro.setOnClickListener {
-            abrirPagoCelular("claro", dinero_disponible)
+            abrirPagoCelular("claro", dinero_disponible_de_main, pagar_launcher)
 
         }
         btn_celular_wom.setOnClickListener {
-            abrirPagoCelular("wom", dinero_disponible)
+            abrirPagoCelular("wom", dinero_disponible_de_main, pagar_launcher)
 
         }
 
@@ -76,11 +85,11 @@ class Servicios : AppCompatActivity() {
     }
 
 
-    private fun abrirPagoCelular(servicio: String, dinero_disponible: Int){
+    private fun abrirPagoCelular(servicio: String, dinero_disponible: Int, pagarLauncher: androidx.activity.result.ActivityResultLauncher<Intent>){
         val intent = Intent(this, Pagar_factura_celular::class.java)
-        intent.putExtra("dinero_dispnible", dinero_disponible)
+        intent.putExtra("dinero_disponible", dinero_disponible)
         intent.putExtra("servicio", servicio)
-        celular_launcher.launch(intent)
+        pagarLauncher.launch(intent)
     }
 
 
