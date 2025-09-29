@@ -15,7 +15,7 @@ import android.app.Activity
 
 class MainActivity : AppCompatActivity() {
 
-    private var dinero_disponible: Int = 0
+    private var dinero_disponible: Int = 1000
     private var dinero_caja_fuerte: Int = 0
     private var dinero_total: Int = dinero_disponible + dinero_caja_fuerte
 
@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         val btn_enviar = findViewById<MaterialButton>(R.id.btn_enviar)
         val btn_servicios= findViewById<ImageButton>(R.id.btn_servicios)
         val btn_tarjeta = findViewById<ImageButton>(R.id.btnTarjeta)
+        val btn_envia = findViewById<ImageButton>(R.id.btnEnvia)
 
         btn_enviar.setOnClickListener {
             val intent = Intent(this, enviar::class.java)
@@ -72,6 +73,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, tarjeta::class.java)
             startActivity(intent)
         }
+        btn_envia.setOnClickListener {
+            val intent = Intent(this, enviar::class.java)
+            startActivity(intent)
+        }
+
 
 
         tv_dinero_disponible.text = "$$dinero_disponible"

@@ -1,5 +1,6 @@
 package com.example.noqui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,8 @@ import androidx.core.view.WindowInsetsCompat
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.ImageView
 
 
 class enviar : AppCompatActivity() {
@@ -21,9 +24,20 @@ class enviar : AppCompatActivity() {
             insets
         }
 
-        //Conversion del campo plata 1000 -> 1.000
-        val editPlata = findViewById<EditText>(R.id.editPlata)
 
+        val editPlata = findViewById<EditText>(R.id.editPlata)
+        val editNumero = findViewById<EditText>(R.id.editNumero)
+        val editMsg = findViewById<EditText>(R.id.editMsg)
+        val btnSigue = findViewById<ImageButton>(R.id.btnSigue)
+        val btnAtras = findViewById<ImageView>(R.id.btnAtras)
+
+
+        btnAtras.setOnClickListener {
+            finish()
+        }
+
+
+        //Conversion del campo plata 1000 -> 1.000
         editPlata.addTextChangedListener(object : TextWatcher {
             private var current = ""
 
@@ -54,6 +68,33 @@ class enviar : AppCompatActivity() {
                 }
             }
         })
+        // Obtener referencias a los campos y al botón
+        btnSigue.setOnClickListener {
+            // Obtener los valores de los campos
+            val numero = editNumero.text.toString().trim()
+            val plata = editPlata.text.toString().trim()
+            val mensaje = editMsg.text.toString().trim()
+
+            // Validación básica
+            if (numero.isEmpty()) {
+                editNumero.error = "Ingresa un número"
+                return@setOnClickListener
+            }
+            if (plata.replace("$", "").replace(".", "").trim().isEmpty()) {
+                editPlata.error = "Ingresa una cantidad"
+                return@setOnClickListener
+            }
+
+            // Crear y mostrar el Fragmento de Diálogo
+            val dialogoConfirmacion = ConfirmarEnvioDialog.newInstance(
+                numero = numero,
+                plata = plata,
+                mensaje = if (mensaje.isEmpty()) "Sin mensaje" else mensaje
+            )
+            dialogoConfirmacion.show(supportFragmentManager, "ConfirmarEnvioTag")
+        }
+
 
     }
+
 }

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noqui">
         <activity
+            android:name=".dialog_confirmar_envio"
+            android:exported="false" />
+        <activity
             android:name=".sacar_plata"
             android:exported="false" />
         <activity

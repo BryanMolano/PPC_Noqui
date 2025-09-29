@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import android.widget.ImageButton
 import android.app.Activity
 import android.content.Intent
+import android.widget.ImageView
 import android.widget.Toast
 
 
@@ -36,9 +37,12 @@ class caja_fuerte : AppCompatActivity() {
 
         val btn_aceptar_caja_fuerte = findViewById<ImageButton>(R.id.caja_fuerte_btn_aceptar)
 
+        val btnAtras = findViewById<ImageView>(R.id.btnAtras)
 
 
-
+        btnAtras.setOnClickListener {
+            finish()
+        }
 
 
         btn_restar_caja_fuerte.setOnClickListener{
