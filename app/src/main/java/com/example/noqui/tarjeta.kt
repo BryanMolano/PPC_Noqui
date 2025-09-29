@@ -46,6 +46,14 @@ class tarjeta : AppCompatActivity() {
             val intent = Intent(this, congelar_tarjeta::class.java)
             startActivity(intent)
         }
+        btnPregunta.setOnClickListener {
+            val intent = Intent(this, tarjeta_ayuda::class.java)
+            startActivity(intent)
+        }
+        btnConfig.setOnClickListener {
+            val intent = Intent(this, tarjeta_configuracion::class.java)
+            startActivity(intent)
+        }
 
 
         }

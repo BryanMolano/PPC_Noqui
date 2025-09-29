@@ -5,6 +5,152 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#161622"
     tools:context=".tarjeta_ayuda">
 
+    <ImageButton
+        android:id="@+id/btnImgEvalua"
+        android:layout_width="353dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="29dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnImgChat"
+        app:srcCompat="@drawable/tarjeta_congelar_boton" />
+
+    <ImageView
+        android:id="@+id/separador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txAyuda"
+        app:srcCompat="@drawable/mv_menu_separator" />
+
+    <ImageButton
+        android:id="@+id/botonVolverAyudaTj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lg_boton_volver" />
+
+    <TextView
+        android:id="@+id/txAyuda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Ayuda"
+        android:textColor="#FFFFFF"
+        android:textSize="23sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txlinkSoporte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="43dp"
+        android:text="¿Necesitas reportar un probelma con tu tarjeta?\nHas click aqui para reportarlo"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tx1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="20dp"
+        android:text="¿Cómo podemos ayudarte?"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separador" />
+
+    <ImageButton
+        android:id="@+id/btnImgChat"
+        android:layout_width="353dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="29dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tx1"
+        app:srcCompat="@drawable/tarjeta_congelar_boton" />
+
+    <ImageView
+        android:id="@+id/iconoChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/btnImgChat"
+        app:layout_constraintTop_toTopOf="@+id/btnImgChat"
+        app:srcCompat="@drawable/chat" />
+
+    <ImageView
+        android:id="@+id/iconoEvalua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/btnImgEvalua"
+        app:layout_constraintTop_toTopOf="@+id/btnImgEvalua"
+        app:srcCompat="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/indicadorChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnImgChat"
+        app:layout_constraintTop_toTopOf="@+id/btnImgChat"
+        app:srcCompat="@drawable/flecha_corta" />
+
+    <ImageView
+        android:id="@+id/indicadorEvalua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnImgEvalua"
+        app:layout_constraintTop_toTopOf="@+id/btnImgEvalua"
+        app:srcCompat="@drawable/flecha_corta" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="18dp"
+        android:text="Chat / Asistente Whattsapp"
+        android:textColor="#EAFFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/iconoChat"
+        app:layout_constraintTop_toTopOf="@+id/btnImgChat" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="18dp"
+        android:text="Evaluanos"
+        android:textColor="#EAFFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/iconoEvalua"
+        app:layout_constraintTop_toTopOf="@+id/btnImgEvalua" />
 </androidx.constraintlayout.widget.ConstraintLayout>
