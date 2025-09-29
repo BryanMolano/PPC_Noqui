@@ -1,6 +1,8 @@
 package com.example.noqui
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,10 +13,13 @@ class boton_azul : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_boton_azul)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        val btnSacarPlata = findViewById<ImageButton>(R.id.btnSaca)
+
+        btnSacarPlata.setOnClickListener {
+            val intent = Intent(this, sacar_plata::class.java)
+            startActivity(intent)
         }
+
     }
 }
