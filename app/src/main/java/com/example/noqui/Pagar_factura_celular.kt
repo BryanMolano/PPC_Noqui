@@ -49,9 +49,15 @@ class Pagar_factura_celular : AppCompatActivity() {
             }
 
             if(dineroDisponible>=monto) {
+                val movimiento = Movimiento(servicio, -monto) // este es la variable del registro
+
                 val nuevo_dinero = dineroDisponible - monto
                 val resultIntent = Intent()
                 resultIntent.putExtra("nuevo_dinero", nuevo_dinero)
+
+                resultIntent.putExtra("movimiento_servicio",movimiento.servicio)
+                resultIntent.putExtra("movimiento_monto",movimiento.monto)
+
                 setResult(Activity.RESULT_OK, resultIntent)
                 Toast.makeText(this, "Pago Completo", Toast.LENGTH_SHORT).show()
                 finish()
@@ -60,8 +66,6 @@ class Pagar_factura_celular : AppCompatActivity() {
                     Toast.makeText(this, "Monto Invalido", Toast.LENGTH_SHORT).show()
 
                 }
-
-
         }
 
         

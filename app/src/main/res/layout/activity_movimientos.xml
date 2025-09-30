@@ -57,4 +57,15 @@
         android:layout_gravity="bottom"
         android:visibility="gone"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMovimientos"
+        android:layout_width="386dp"
+        android:layout_height="554dp"
+        android:layout_marginBottom="74dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/movimiento" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

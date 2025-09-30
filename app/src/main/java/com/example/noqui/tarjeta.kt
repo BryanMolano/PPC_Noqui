@@ -1,5 +1,6 @@
 package com.example.noqui
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +37,7 @@ class tarjeta : AppCompatActivity() {
         val btnConfig = findViewById<ImageButton>(R.id.btnImgConfigTj)
 
         btnVolver.setOnClickListener {
+            setResult(Activity.RESULT_CANCELED)
             finish()
         }
         btnMovTj.setOnClickListener {

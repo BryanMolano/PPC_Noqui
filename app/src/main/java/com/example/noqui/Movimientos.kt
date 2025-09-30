@@ -8,7 +8,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import android.app.Activity
 class Movimientos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +27,20 @@ class Movimientos : AppCompatActivity() {
         val btnFondoba = findViewById<ImageButton>(R.id.btnFondo)
         val azul = findViewById<View>(R.id.azul)
 
-
         val btn_main = findViewById<ImageButton>(R.id.btnInicio)
+
+
+        val listaMovimientos = intent.getSerializableExtra("lista_movimientos") as? ArrayList<Movimiento> ?: arrayListOf()
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerMovimientos)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+
+        val adapter = MovimientoAdapter(listaMovimientos)
+        recyclerView.adapter = adapter
+        adapter.notifyDataSetChanged()
+
+
 
         btnFondoba.setOnClickListener {
             azul.visibility = View.GONE
@@ -39,8 +53,7 @@ class Movimientos : AppCompatActivity() {
         }
 
         btn_main.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            setResult(Activity.RESULT_CANCELED)
             finish()
         }
     }

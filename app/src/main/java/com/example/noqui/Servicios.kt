@@ -24,6 +24,7 @@ class Servicios : AppCompatActivity() {
 
         val dinero_disponible_de_main=intent.getIntExtra("dinero_disponible",0)
 
+
         val btn_regresar = findViewById<ImageButton>(R.id.btn_regresar)
         val btn_celular_movistar = findViewById<ImageButton>(R.id.btn_celular_movistar)
         val btn_celular_claro = findViewById<ImageButton>(R.id.btn_celular_claro)
@@ -45,12 +46,19 @@ class Servicios : AppCompatActivity() {
 
         val pagar_launcher=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
             if(result.resultCode == Activity.RESULT_OK){
+
                 val data = result.data
                 if(data!=null){
                     val nuevo_dinero=data.getIntExtra("nuevo_dinero", dinero_disponible_de_main)
 
+                    val servicio = data.getStringExtra("movimiento_servicio") ?: ""
+                    val monto = data.getIntExtra("movimiento_monto", 0)
+
                     val resultIntent= Intent()
                     resultIntent.putExtra("nuevo_dinero", nuevo_dinero)
+                    resultIntent.putExtra("movimiento_servicio", servicio)
+                    resultIntent.putExtra("movimiento_monto", monto)
+
                     setResult(Activity.RESULT_OK, resultIntent)
                     finish()
                 }

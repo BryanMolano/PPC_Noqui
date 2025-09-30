@@ -13,9 +13,11 @@ import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import android.app.Activity
 import android.widget.Toast
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
 
+    private val movimientos = ArrayList<Movimiento>()
     private var dinero_disponible: Int = 1000
     private var dinero_caja_fuerte: Int = 0
     private var dinero_total: Int = dinero_disponible + dinero_caja_fuerte
@@ -41,12 +43,19 @@ class MainActivity : AppCompatActivity() {
         if(result.resultCode== Activity.RESULT_OK){
             val data=result.data
             if(data!=null){
+
+                val servicio = data.getStringExtra("movimiento_servicio") ?: ""
+                val monto = data.getIntExtra("movimiento_monto", 0)
+
+                movimientos.add(Movimiento(servicio, monto))
+
                 dinero_disponible=data.getIntExtra("nuevo_dinero",dinero_disponible)
                 dinero_total =dinero_disponible+dinero_caja_fuerte
                 findViewById<TextView>(R.id.textview_dinero_disponible).text = "$$dinero_disponible"
                 findViewById<TextView>(R.id.textview_dinero_total).text = "$$dinero_total"
 
                 Toast.makeText(this, "Dinero actualizado a: $dinero_disponible", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "El movimiento registrado fue: $servicio y $monto", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -73,14 +82,21 @@ class MainActivity : AppCompatActivity() {
         val btn_movimientos = findViewById<ImageButton>(R.id.btnMovimientos)
         val btn_enviar = findViewById<MaterialButton>(R.id.btn_enviar)
         val btn_servicios= findViewById<ImageButton>(R.id.btn_servicios)
+        val btn_servicios_nv= findViewById<ImageButton>(R.id.btnServicios)
         val btn_tarjeta = findViewById<ImageButton>(R.id.btnTarjeta)
         val btn_envia = findViewById<ImageButton>(R.id.btnEnvia)
+
 
         btn_enviar.setOnClickListener {
             val intent = Intent(this, enviar::class.java)
             startActivity(intent)
         }
         btn_servicios.setOnClickListener {
+            val intent = Intent(this, Servicios::class.java)
+            intent.putExtra("dinero_disponible", dinero_disponible)
+            servicios_launcher.launch(intent)
+        }
+        btn_servicios_nv.setOnClickListener {
             val intent = Intent(this, Servicios::class.java)
             intent.putExtra("dinero_disponible", dinero_disponible)
             servicios_launcher.launch(intent)
@@ -105,6 +121,8 @@ class MainActivity : AppCompatActivity() {
 
         btn_movimientos.setOnClickListener {
             val intent = Intent(this, Movimientos::class.java)
+            intent.putExtra("lista_movimientos", movimientos)
+            println("Movimientos: $movimientos")
             startActivity(intent)
         }
 
@@ -137,16 +155,8 @@ class MainActivity : AppCompatActivity() {
                 dinero_visible = true
             }
         }
-
     }
 
 
-
-
-
-
-
-
-
-
 }
+
