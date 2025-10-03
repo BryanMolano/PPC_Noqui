@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#161622"
+    tools:context=".Seguridad">
+
+    <!-- Fondo decorativo -->
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="334dp"
+        android:layout_height="424dp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginBottom="35dp"
+        android:alpha="0.3"
+        android:rotation="-40"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ovalo_diseno_fondo" />
+
+    <!-- Botón volver -->
+    <ImageButton
+        android:id="@+id/btnVolver_segu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lg_boton_volver" />
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="34dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Seguridad"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/btnVolver_segu"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Marco circular -->
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView29"
+        app:srcCompat="@drawable/marco" />
+
+    <!-- Imagen de candado -->
+
+    <ImageView
+        android:id="@+id/imgseguridad"
+        android:layout_width="166dp"
+        android:layout_height="166dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="7dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/candadoseguridad"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView16"
+        app:layout_constraintEnd_toEndOf="@+id/imageView16"
+        app:layout_constraintStart_toStartOf="@+id/imageView16"
+        app:layout_constraintTop_toTopOf="@+id/imageView16"/>
+
+    <!-- Subtítulo Contraseña Actual -->
+    <TextView
+        android:id="@+id/tvSubcontraseñaAct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Contraseña Actual"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView16" />
+
+    <!-- Campo Contraseña Actual -->
+    <RelativeLayout
+        android:id="@+id/layoutcontraseñaAct"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="32dp"
+        android:background="@drawable/card_box"
+        app:layout_constraintTop_toBottomOf="@id/tvSubcontraseñaAct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <EditText
+            android:id="@+id/etcontraseñaAct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/btncontraseñaAct"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/poppins_light"
+            android:hint="••••"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#AAAAAA"
+            android:textSize="20sp"/>
+
+        <ImageButton
+            android:id="@+id/btncontraseñaAct"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="30dp"
+            android:maxHeight="18dp"
+            android:maxWidth="18dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_lock"/>
+    </RelativeLayout>
+
+    <!-- Subtítulo Nueva Contraseña -->
+    <TextView
+        android:id="@+id/tvSubNuevaCont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Nueva Contraseña"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutcontraseñaAct" />
+
+    <!-- Campo Nueva Contraseña -->
+    <RelativeLayout
+        android:id="@+id/layoutNuevacont"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="32dp"
+        android:background="@drawable/card_box"
+        app:layout_constraintTop_toBottomOf="@id/tvSubNuevaCont"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <EditText
+            android:id="@+id/etNuevaCont"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/btnNuevaCont"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/poppins_light"
+            android:hint="••••"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#AAAAAA"
+            android:textSize="20sp"/>
+
+        <ImageButton
+            android:id="@+id/btnNuevaCont"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="30dp"
+            android:maxHeight="18dp"
+            android:maxWidth="18dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_lock"/>
+    </RelativeLayout>
+
+    <!-- Subtítulo Confirmar Contraseña -->
+    <TextView
+        android:id="@+id/tvSubConfirmcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Confirma la nueva Contraseña"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutNuevacont" />
+
+    <!-- Campo Confirmar Contraseña -->
+    <RelativeLayout
+        android:id="@+id/layoutConfirmcon"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="32dp"
+        android:background="@drawable/card_box"
+        app:layout_constraintTop_toBottomOf="@id/tvSubConfirmcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <EditText
+            android:id="@+id/etConfirmcon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/btnConfirmcon"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/poppins_light"
+            android:hint="••••"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#AAAAAA"
+            android:textSize="20sp"/>
+
+        <ImageButton
+            android:id="@+id/btnConfirmcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="30dp"
+            android:maxHeight="18dp"
+            android:maxWidth="18dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_lock"/>
+    </RelativeLayout>
+
+    <!-- Botón Cambiar Contraseña -->
+    <Button
+        android:id="@+id/btnCambiarcontraseña"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#1976FF"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Cambiar Contraseña"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
