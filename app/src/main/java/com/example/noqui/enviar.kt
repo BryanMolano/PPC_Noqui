@@ -119,7 +119,10 @@ class enviar : AppCompatActivity(), ConfirmacionListener {
 
         // Crea el Intent de resultado para que MainActivity actualice el saldo
         val resultIntent = Intent().apply {
+            val movimiento = Movimiento(numero, -monto.toInt())
             putExtra("nuevo_dinero_disponible", nuevoSaldo)
+            putExtra("mo_numero", movimiento.servicio)
+            putExtra("mo_monto", movimiento.monto)
         }
         setResult(Activity.RESULT_OK, resultIntent)
 

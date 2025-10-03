@@ -22,7 +22,8 @@ class MainActivity : AppCompatActivity() {
     private var dinero_disponible: Int = 1000
     private var dinero_caja_fuerte: Int = 0
     private var dinero_total: Int = dinero_disponible + dinero_caja_fuerte
-
+    private var monto_en: Int = 0
+    private var numero: String = ""
     private var dinero_visible: Boolean = true
 
     // Formateador para mostrar $ con separadores de miles
@@ -63,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
+    // IMPORTANTE
     private val enviarLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -71,6 +72,11 @@ class MainActivity : AppCompatActivity() {
                 if (data != null) {
                     // Recibir el nuevo saldo de vuelta
                     val nuevoSaldoDouble = data.getDoubleExtra("nuevo_dinero_disponible", dinero_disponible.toDouble())
+                    monto_en = data.getIntExtra("mo_monto", 0)
+                    numero = data.getStringExtra("mo_numero") ?: ""
+
+                    movimientos.add(Movimiento(numero, monto_en))
+
                     dinero_disponible = nuevoSaldoDouble.toInt()
                     dinero_total = dinero_disponible + dinero_caja_fuerte
                     actualizarSaldosUI()

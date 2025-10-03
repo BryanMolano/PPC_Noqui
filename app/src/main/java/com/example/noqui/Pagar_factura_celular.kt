@@ -50,7 +50,6 @@ class Pagar_factura_celular : AppCompatActivity() {
 
             if(dineroDisponible>=monto) {
                 val movimiento = Movimiento(servicio, -monto) // este es la variable del registro
-
                 val nuevo_dinero = dineroDisponible - monto
                 val resultIntent = Intent()
                 resultIntent.putExtra("nuevo_dinero", nuevo_dinero)
