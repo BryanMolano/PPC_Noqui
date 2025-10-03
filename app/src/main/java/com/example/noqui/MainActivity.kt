@@ -13,7 +13,8 @@ import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import android.app.Activity
 import android.widget.Toast
-import android.util.Log
+import java.text.DecimalFormat
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +25,13 @@ class MainActivity : AppCompatActivity() {
 
     private var dinero_visible: Boolean = true
 
+    // Formateador para mostrar $ con separadores de miles
+    private val saldoFormatter = DecimalFormat("#,###").apply {
+        decimalFormatSymbols = java.text.DecimalFormatSymbols(Locale.getDefault()).apply {
+            groupingSeparator = '.'
+        }
+    }
+
     private val cajaFuerteLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -32,33 +40,43 @@ class MainActivity : AppCompatActivity() {
                     dinero_disponible = data.getIntExtra("dinero_disponible", dinero_disponible)
                     dinero_caja_fuerte = data.getIntExtra("dinero_caja_fuerte", dinero_caja_fuerte)
                     dinero_total = dinero_disponible + dinero_caja_fuerte
-
-                    findViewById<TextView>(R.id.textview_dinero_disponible).text = "$$dinero_disponible"
-                    findViewById<TextView>(R.id.textview_dinero_total).text = "$$dinero_total"
+                    actualizarSaldosUI()
                 }
             }
         }
-    val servicios_launcher= registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-            result->
-        if(result.resultCode== Activity.RESULT_OK){
-            val data=result.data
-            if(data!=null){
 
-                val servicio = data.getStringExtra("movimiento_servicio") ?: ""
-                val monto = data.getIntExtra("movimiento_monto", 0)
+    private val serviciosLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data = result.data
+                if (data != null) {
+                    val servicio = data.getStringExtra("movimiento_servicio") ?: ""
+                    val monto = data.getIntExtra("movimiento_monto", 0)
 
-                movimientos.add(Movimiento(servicio, monto))
+                    movimientos.add(Movimiento(servicio, monto))
 
-                dinero_disponible=data.getIntExtra("nuevo_dinero",dinero_disponible)
-                dinero_total =dinero_disponible+dinero_caja_fuerte
-                findViewById<TextView>(R.id.textview_dinero_disponible).text = "$$dinero_disponible"
-                findViewById<TextView>(R.id.textview_dinero_total).text = "$$dinero_total"
+                    dinero_disponible = data.getIntExtra("nuevo_dinero", dinero_disponible)
+                    dinero_total = dinero_disponible + dinero_caja_fuerte
+                    actualizarSaldosUI()
 
-                Toast.makeText(this, "Dinero actualizado a: $dinero_disponible", Toast.LENGTH_SHORT).show()
-                //Toast.makeText(this, "El movimiento registrado fue: $servicio y $monto", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Dinero actualizado a: $dinero_disponible", Toast.LENGTH_SHORT).show()
+                }
             }
         }
-    }
+
+    private val enviarLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data = result.data
+                if (data != null) {
+                    // Recibir el nuevo saldo de vuelta
+                    val nuevoSaldoDouble = data.getDoubleExtra("nuevo_dinero_disponible", dinero_disponible.toDouble())
+                    dinero_disponible = nuevoSaldoDouble.toInt()
+                    dinero_total = dinero_disponible + dinero_caja_fuerte
+                    actualizarSaldosUI()
+                }
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,44 +94,40 @@ class MainActivity : AppCompatActivity() {
         val btnFondoba = findViewById<ImageButton>(R.id.btnFondo)
         val azul = findViewById<View>(R.id.azul)
 
-        val tv_dinero_disponible = findViewById<TextView>(R.id.textview_dinero_disponible)
-        val tv_dinero_total = findViewById<TextView>(R.id.textview_dinero_total)
         val btn_ojo_dinero = findViewById<ImageButton>(R.id.button_ojo_dinero)
         val btn_movimientos = findViewById<ImageButton>(R.id.btnMovimientos)
         val btn_enviar = findViewById<MaterialButton>(R.id.btn_enviar)
-        val btn_servicios= findViewById<ImageButton>(R.id.btn_servicios)
-        val btn_servicios_nv= findViewById<ImageButton>(R.id.btnServicios)
+        val btn_servicios = findViewById<ImageButton>(R.id.btn_servicios)
+        val btn_servicios_nv = findViewById<ImageButton>(R.id.btnServicios)
         val btn_tarjeta = findViewById<ImageButton>(R.id.btnTarjeta)
         val btn_envia = findViewById<ImageButton>(R.id.btnEnvia)
 
-
-        btn_enviar.setOnClickListener {
+        // Función para iniciar actividad de enviar
+        val iniciarEnviar = {
             val intent = Intent(this, enviar::class.java)
-            startActivity(intent)
+            intent.putExtra("dinero_disponible", dinero_disponible.toDouble())
+            enviarLauncher.launch(intent)
         }
+
+        btn_enviar.setOnClickListener { iniciarEnviar() }
+        btn_envia.setOnClickListener { iniciarEnviar() }
+
         btn_servicios.setOnClickListener {
             val intent = Intent(this, Servicios::class.java)
             intent.putExtra("dinero_disponible", dinero_disponible)
-            servicios_launcher.launch(intent)
+            serviciosLauncher.launch(intent)
         }
         btn_servicios_nv.setOnClickListener {
             val intent = Intent(this, Servicios::class.java)
             intent.putExtra("dinero_disponible", dinero_disponible)
-            servicios_launcher.launch(intent)
+            serviciosLauncher.launch(intent)
         }
         btn_tarjeta.setOnClickListener {
             val intent = Intent(this, tarjeta::class.java)
             startActivity(intent)
         }
-        btn_envia.setOnClickListener {
-            val intent = Intent(this, enviar::class.java)
-            startActivity(intent)
-        }
 
-
-
-        tv_dinero_disponible.text = "$$dinero_disponible"
-        tv_dinero_total.text = "$$dinero_total"
+        actualizarSaldosUI()
 
         btnFondoba.setOnClickListener { azul.visibility = View.GONE }
         btnAzulnv.setOnClickListener { azul.visibility = View.VISIBLE }
@@ -122,13 +136,12 @@ class MainActivity : AppCompatActivity() {
         btn_movimientos.setOnClickListener {
             val intent = Intent(this, Movimientos::class.java)
             intent.putExtra("lista_movimientos", movimientos)
-            println("Movimientos: $movimientos")
             startActivity(intent)
         }
 
         val btn_caja_fuerte = findViewById<MaterialButton>(R.id.btnCajaFuerte)
-
         val btn_caja_fuerte2 = findViewById<ImageButton>(R.id.btnCajaFuerte2)
+
         btn_caja_fuerte.setOnClickListener {
             val intent = Intent(this, caja_fuerte::class.java)
             intent.putExtra("dinero_disponible", dinero_disponible)
@@ -145,18 +158,23 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_ojo_dinero.setOnClickListener {
-            if (dinero_visible) {
-                tv_dinero_disponible.text = "*****"
-                tv_dinero_total.text = "*****"
-                dinero_visible = false
-            } else {
-                tv_dinero_disponible.text = "$$dinero_disponible"
-                tv_dinero_total.text = "$$dinero_total"
-                dinero_visible = true
-            }
+            dinero_visible = !dinero_visible
+            actualizarSaldosUI()
         }
     }
 
+    // Método para actualizar saldos en la interfaz
+    private fun actualizarSaldosUI() {
+        val tv_dinero_disponible = findViewById<TextView>(R.id.textview_dinero_disponible)
+        val tv_dinero_total = findViewById<TextView>(R.id.textview_dinero_total)
 
+        val disponibleFormato = saldoFormatter.format(dinero_disponible)
+        val totalFormato = saldoFormatter.format(dinero_total)
+
+        val disponibleTexto = if (dinero_visible) "$$disponibleFormato" else "*****"
+        val totalTexto = if (dinero_visible) "$$totalFormato" else "*****"
+
+        tv_dinero_disponible.text = disponibleTexto
+        tv_dinero_total.text = totalTexto
+    }
 }
-

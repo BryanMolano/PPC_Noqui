@@ -1,5 +1,6 @@
 package com.example.noqui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -58,6 +59,18 @@ class ConfirmarEnvioDialog : DialogFragment() {
         return inflater.inflate(R.layout.activity_dialog_confirmar_envio, container, false)
     }
 
+    // Agregar listener para comunicar la acción
+    private lateinit var listener: ConfirmacionListener
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try {
+            listener = context as ConfirmacionListener
+        } catch (e: ClassCastException) {
+            throw ClassCastException("$context must implement ConfirmacionListener")
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -73,6 +86,21 @@ class ConfirmarEnvioDialog : DialogFragment() {
 
         view.findViewById<Button>(R.id.btnConfirmar).setOnClickListener {
 
+            dismiss()
+        }
+
+        // Obtener el monto
+        val plataStr = arguments?.getString(ARG_PLATA) ?: "$ 0"
+        val cleanMonto = plataStr.replace("$", "").replace(".", "").trim()
+        val montoDouble = cleanMonto.toDoubleOrNull() ?: 0.0
+
+        // Lógica del botón Confirmar
+        view.findViewById<Button>(R.id.btnConfirmar).setOnClickListener {
+            listener.onEnvioConfirmado(
+                monto = montoDouble,
+                numero = numero,
+                mensaje = mensaje
+            )
             dismiss()
         }
     }

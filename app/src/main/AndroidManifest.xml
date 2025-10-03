@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noqui">
         <activity
+            android:name=".envio_realizado"
+            android:exported="false" />
+        <activity
             android:name=".dialog_confirmar_envio"
             android:exported="false" />
         <activity
@@ -44,7 +47,7 @@
         <activity
             android:name=".tarjeta"
             android:exported="false" />
-        <activity android:name=".Pagar_factura_celular"/>
+        <activity android:name=".Pagar_factura_celular" />
         <activity
             android:name=".Movimientos"
             android:exported="false" /> <!-- Login será la pantalla inicial -->
