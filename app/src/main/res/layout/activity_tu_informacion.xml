@@ -15,44 +15,48 @@
         android:layout_width="334dp"
         android:layout_height="424dp"
         android:layout_marginStart="204dp"
-        android:layout_marginTop="184dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginTop="192dp"
+        android:layout_marginBottom="27dp"
         android:alpha="0.3"
+        android:elevation="0dp"
         android:rotation="-40"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/btnActualizarDatos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ovalo_diseno_fondo" />
 
+    <!-- Título -->
     <ImageButton
         android:id="@+id/btnVolver_tuinfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lg_boton_volver" />
 
-    <!-- Título -->
+    <!-- Marco del perfil -->
+
     <TextView
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="24dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Tu Información"
         android:textColor="#ffffff"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@id/btnVolver_tuinfo"
-        app:layout_constraintStart_toEndOf="@id/btnVolver_tuinfo"
-        app:layout_constraintTop_toTopOf="@id/btnVolver_tuinfo" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnVolver_tuinfo"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Marco del perfil -->
     <ImageView
         android:id="@+id/imageView16"
         android:layout_width="wrap_content"
@@ -69,7 +73,7 @@
     <!-- Botón cambiar foto -->
 
     <ImageView
-        android:id="@+id/imgseguridad"
+        android:id="@+id/imgPerfil"
         android:layout_width="166dp"
         android:layout_height="166dp"
         android:scaleType="centerCrop"
@@ -92,7 +96,7 @@
         android:src="@drawable/ic_cambiofoto"
         app:layout_constraintEnd_toEndOf="@+id/imageView16"
         app:layout_constraintStart_toStartOf="@+id/imageView16"
-        app:layout_constraintTop_toTopOf="@+id/imgseguridad"/>
+        app:layout_constraintTop_toTopOf="@+id/imgPerfil"/>
 
     <!-- Subtítulo Nombre -->
     <TextView

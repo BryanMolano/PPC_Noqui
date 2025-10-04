@@ -9,28 +9,33 @@
     tools:context=".perfil_Inicio">
 
     <!-- Fondo decorativo -->
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="334dp"
-        android:layout_height="424dp"
-        android:layout_marginStart="32dp"
-        android:alpha="0.3"
-        android:rotation="-40"
-        android:src="@drawable/ovalo_diseno_fondo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnCard1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.54" />
 
     <!-- Botón Volver -->
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="334dp"
+        android:layout_height="424dp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="192dp"
+        android:layout_marginBottom="115dp"
+        android:alpha="0.3"
+        android:elevation="0dp"
+        android:rotation="-40"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ovalo_diseno_fondo" />
+
     <ImageButton
         android:id="@+id/btnVolverperfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="332dp"
         android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/btnCard1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lg_boton_volver" />
@@ -41,13 +46,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="271dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Perfil"
         android:textColor="#FFFFFF"
         android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="@+id/btnVolverperfil"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnVolverperfil"
-        app:layout_constraintTop_toTopOf="@+id/btnVolverperfil" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Marco del perfil -->
     <ImageView
