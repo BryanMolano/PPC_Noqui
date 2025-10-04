@@ -9,8 +9,6 @@
     tools:context=".perfil_Inicio">
 
     <!-- Fondo decorativo -->
-
-    <!-- Botón Volver -->
     <ImageView
         android:id="@+id/imageView15"
         android:layout_width="334dp"
@@ -27,6 +25,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ovalo_diseno_fondo" />
 
+    <!-- Botón Volver -->
     <ImageButton
         android:id="@+id/btnVolverperfil"
         android:layout_width="wrap_content"
@@ -35,7 +34,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="332dp"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toTopOf="@+id/btnCard1"
+        app:layout_constraintBottom_toTopOf="@+id/btnInfoPerfil"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lg_boton_volver" />
@@ -71,9 +70,6 @@
         app:srcCompat="@drawable/marco" />
 
     <!-- Imagen de perfil circular (draggable) -->
-    <!-- Nombre del usuario -->
-
-
     <ImageView
         android:id="@+id/imgPerfil"
         android:layout_width="166dp"
@@ -87,6 +83,7 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
+    <!-- Nombre del usuario -->
     <TextView
         android:id="@+id/tvNombreperfil"
         android:layout_width="wrap_content"
@@ -131,7 +128,7 @@
 
     <!-- Card 1: Tu Información -->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/btnCard1"
+        android:id="@+id/btnInfoPerfil"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -187,7 +184,7 @@
 
     <!-- Card 2: Seguridad -->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/btnCard2"
+        android:id="@+id/btnSeguridad"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -199,10 +196,10 @@
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnCard1">
+        app:layout_constraintTop_toBottomOf="@id/btnInfoPerfil">
 
         <LinearLayout
-            android:id="@+id/imgbtnSeguridad"
+            android:id="@+id/btnSeguridadPerfil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#161622"

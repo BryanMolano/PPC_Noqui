@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     private var numero: String = ""
     private var dinero_visible: Boolean = true
 
+    private var numeroTelefonoUsuario: String = ""
+
     // Formateador para mostrar $ con separadores de miles
     private val saldoFormatter = DecimalFormat("#,###").apply {
         decimalFormatSymbols = java.text.DecimalFormatSymbols(Locale.getDefault()).apply {
@@ -88,7 +90,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-
+        numeroTelefonoUsuario = intent.getStringExtra("numero_telefono") ?: "Número no disponible"
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -107,6 +109,8 @@ class MainActivity : AppCompatActivity() {
         val btn_servicios_nv = findViewById<ImageButton>(R.id.btnServicios)
         val btn_tarjeta = findViewById<ImageButton>(R.id.btnTarjeta)
         val btn_envia = findViewById<ImageButton>(R.id.btnEnvia)
+        val btnPerfil1 = findViewById<MaterialButton>(R.id.btnPerfil1)
+        val btnPerfil2 = findViewById<ImageButton>(R.id.btnPerfil2)
 
         // Función para iniciar actividad de enviar
         val iniciarEnviar = {
@@ -162,11 +166,24 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("dinero_total", dinero_total)
             cajaFuerteLauncher.launch(intent)
         }
+        btnPerfil1.setOnClickListener {
+            val intent = Intent(this, perfil_Inicio::class.java)
+            intent.putExtra("numero_telefono", numeroTelefonoUsuario)
+            startActivity(intent)
+        }
+
+        btnPerfil2.setOnClickListener {
+            val intent = Intent(this, perfil_Inicio::class.java)
+            intent.putExtra("numero_telefono", numeroTelefonoUsuario)
+            startActivity(intent)
+        }
 
         btn_ojo_dinero.setOnClickListener {
             dinero_visible = !dinero_visible
             actualizarSaldosUI()
         }
+
+
     }
 
     // Método para actualizar saldos en la interfaz

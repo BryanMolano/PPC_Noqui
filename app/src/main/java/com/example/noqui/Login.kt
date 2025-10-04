@@ -19,7 +19,7 @@ class Login : AppCompatActivity() {
         val botonVerClave = findViewById<ImageButton>(R.id.botonVerClave)
         val botonVolver = findViewById<ImageButton>(R.id.botonVolver)
         var claveVisible = false
-
+435345
         botonVolver.setOnClickListener {
             finishAffinity()
         }
@@ -45,6 +45,7 @@ class Login : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Usuario Ingresado Correctamente", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("numero_telefono", telefono)
                 startActivity(intent)
                 finish()
             }

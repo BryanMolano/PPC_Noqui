@@ -34,6 +34,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
+        android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lg_boton_volver" />
@@ -256,6 +257,7 @@
         android:layout_marginHorizontal="32dp"
         android:layout_marginBottom="32dp"
         android:backgroundTint="#1976FF"
+        android:clickable="true"
         android:fontFamily="@font/poppins_medium"
         android:text="Actualizar Datos"
         android:textAllCaps="false"

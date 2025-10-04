@@ -61,12 +61,13 @@
         app:layout_constraintTop_toBottomOf="@+id/btnTransfiya" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnColchon"
+        android:id="@+id/btnPerfil1"
         android:layout_width="88dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="#2C2C2C"
+        android:clickable="true"
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:padding="8dp"
@@ -87,22 +88,22 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:text="Hola, usuario"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/btnPerfil2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btnPerfil2"
         android:layout_width="41dp"
         android:layout_height="41dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:adjustViewBounds="true"
         android:background="@drawable/fondo_gris_icono"
+        android:clickable="true"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/usuario_logo_mainactivity"
-        />
+        app:srcCompat="@drawable/usuario_logo_mainactivity" />
 
     <ImageButton
         android:id="@+id/imageButton2"
