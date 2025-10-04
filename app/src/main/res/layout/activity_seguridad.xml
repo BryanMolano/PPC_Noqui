@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Seguridad"
         android:textColor="#ffffff"
@@ -126,7 +126,7 @@
             android:maxHeight="18dp"
             android:maxWidth="18dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_lock"/>
+            android:src="@drawable/ic_ojo"/>
     </RelativeLayout>
 
     <!-- Subtítulo Nueva Contraseña -->
@@ -176,10 +176,11 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="30dp"
-            android:maxHeight="18dp"
-            android:maxWidth="18dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_lock"/>
+            android:clickable="true"
+            android:maxWidth="28dp"
+            android:maxHeight="28dp"
+            android:src="@drawable/ic_ojo" />
     </RelativeLayout>
 
     <!-- Subtítulo Confirmar Contraseña -->
@@ -232,7 +233,7 @@
             android:maxHeight="18dp"
             android:maxWidth="18dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_lock"/>
+            android:src="@drawable/ic_ojo"/>
     </RelativeLayout>
 
     <!-- Botón Cambiar Contraseña -->

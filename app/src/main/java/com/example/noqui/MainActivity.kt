@@ -25,8 +25,7 @@ class MainActivity : AppCompatActivity() {
     private var monto_en: Int = 0
     private var numero: String = ""
     private var dinero_visible: Boolean = true
-
-    private var numeroTelefonoUsuario: String = ""
+    private lateinit var tvBienvenida: TextView // Declaración de tvBienvenida
 
     // Formateador para mostrar $ con separadores de miles
     private val saldoFormatter = DecimalFormat("#,###").apply {
@@ -86,11 +85,26 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    // 💡 NUEVO LAUNCHER para PERFIL_INICIO (para recibir el nombre actualizado)
+    private val perfilLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data = result.data
+                // Extraer el nombre retornado desde perfil_Inicio
+                val primerNombre = data?.getStringExtra(perfil_Inicio.EXTRA_NOMBRE_RETORNADO)
+                if (primerNombre != null && primerNombre.isNotBlank()) {
+                    // Actualizar el saludo de bienvenida con el nuevo nombre
+                    tvBienvenida.text = "Hola, $primerNombre"
+                }
+            }
+        }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        numeroTelefonoUsuario = intent.getStringExtra("numero_telefono") ?: "Número no disponible"
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -111,6 +125,19 @@ class MainActivity : AppCompatActivity() {
         val btn_envia = findViewById<ImageButton>(R.id.btnEnvia)
         val btnPerfil1 = findViewById<MaterialButton>(R.id.btnPerfil1)
         val btnPerfil2 = findViewById<ImageButton>(R.id.btnPerfil2)
+        tvBienvenida = findViewById<TextView>(R.id.tvBienvenida)
+
+        // 💡 Lógica inicial para el saludo (usa el valor persistido en perfil_Inicio)
+        val primerNombre = perfil_Inicio.getFirstName(perfil_Inicio.currentUserName)
+        tvBienvenida.text = "Hola, $primerNombre"
+
+        val telefonoInicial = intent.getStringExtra(Login.EXTRA_TELEFONO_LOGIN)
+
+        // Si se recibió un número de teléfono y el valor persistente en perfil_Inicio
+        // aún es el valor por defecto ("Teléfono (opcional)"), se actualiza.
+        if (telefonoInicial != null && perfil_Inicio.currentUserPhone == "Teléfono (opcional)") {
+            perfil_Inicio.currentUserPhone = telefonoInicial
+        }
 
         // Función para iniciar actividad de enviar
         val iniciarEnviar = {
@@ -168,14 +195,12 @@ class MainActivity : AppCompatActivity() {
         }
         btnPerfil1.setOnClickListener {
             val intent = Intent(this, perfil_Inicio::class.java)
-            intent.putExtra("numero_telefono", numeroTelefonoUsuario)
-            startActivity(intent)
+            perfilLauncher.launch(intent)
         }
 
         btnPerfil2.setOnClickListener {
             val intent = Intent(this, perfil_Inicio::class.java)
-            intent.putExtra("numero_telefono", numeroTelefonoUsuario)
-            startActivity(intent)
+            perfilLauncher.launch(intent)
         }
 
         btn_ojo_dinero.setOnClickListener {

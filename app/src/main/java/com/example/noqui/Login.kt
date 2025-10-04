@@ -9,6 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 class Login : AppCompatActivity() {
+
+    // Constante para la clave del Intent, usada para enviar el teléfono
+    companion object {
+        const val EXTRA_TELEFONO_LOGIN = "numero_telefono"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -19,7 +25,7 @@ class Login : AppCompatActivity() {
         val botonVerClave = findViewById<ImageButton>(R.id.botonVerClave)
         val botonVolver = findViewById<ImageButton>(R.id.botonVolver)
         var claveVisible = false
-435345
+
         botonVolver.setOnClickListener {
             finishAffinity()
         }
@@ -43,7 +49,15 @@ class Login : AppCompatActivity() {
             if (telefono.isEmpty() || clave.isEmpty()) {
                 Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
             } else {
+                // Validación simulada exitosa
                 Toast.makeText(this, "Usuario Ingresado Correctamente", Toast.LENGTH_SHORT).show()
+
+                // ** LÓGICA DE PERSISTENCIA: Guardar la clave y el teléfono en perfil_Inicio **
+                // Esto permite que Seguridad.kt acceda a la clave actual para su validación.
+                perfil_Inicio.currentUserPassword = clave
+                perfil_Inicio.currentUserPhone = telefono
+                perfil_Inicio.currentUserName = "Usuario de $telefono" // Establecer un nombre inicial
+
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("numero_telefono", telefono)
                 startActivity(intent)

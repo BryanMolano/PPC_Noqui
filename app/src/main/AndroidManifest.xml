@@ -12,7 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noqui">
         <activity
-            android:name=".envio_realizado"
+            android:name=".Notificacion"
+            android:exported="false" />
+        <activity
+            android:name=".Pedir_dinero"
+            android:exported="false" />
+        <activity
+            android:name=".Seguridad"
+            android:exported="false"
+            android:theme="@style/Theme.Noqui" />
+        <activity
+            android:name=".Tu_Informacion"
+            android:exported="false" />
+        <activity
+            android:name=".perfil_Inicio"
             android:exported="false" />
         <activity
             android:name=".dialog_confirmar_envio"
