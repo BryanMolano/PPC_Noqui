@@ -23,8 +23,8 @@ class perfil_Inicio : AppCompatActivity() {
         const val EXTRA_PASSWORD = "EXTRA_PASSWORD"
 
         var currentUserName: String = "Nombre de Usuario"
-        var currentUserPhone: String = "Teléfono (opcional)"
-        var currentUserEmail: String = "Correo (opcional)"
+        var currentUserPhone: String = ""
+        var currentUserEmail: String = ""
         // **Nueva variable para almacenar la contraseña del Login**
         var currentUserPassword: String = "12345" // Contraseña temporal por defecto/ejemplo
 

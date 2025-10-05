@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    app:cardBackgroundColor="#212133"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Título de la Notificación (Recibido/Solicitud) -->
+        <TextView
+            android:id="@+id/tvTituloPeticion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Título de Petición"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/tvFechaPeticion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Monto / Contacto (El color se cambia en el código Kotlin) -->
+        <TextView
+            android:id="@+id/tvMontoPeticion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/poppins_light"
+            android:text="De: Contacto / Monto: $XX"
+            android:textColor="@android:color/holo_green_light"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTituloPeticion" />
+
+        <!-- Mensaje de la Petición -->
+        <TextView
+            android:id="@+id/tvMensajePeticion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_light"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="Mensaje opcional"
+            android:textColor="#C0C0C0"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMontoPeticion" />
+
+        <!-- Fecha de la Petición -->
+        <TextView
+            android:id="@+id/tvFechaPeticion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light"
+            android:text="Fecha"
+            android:textColor="#808080"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/tvMontoPeticion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -126,6 +126,7 @@ class MainActivity : AppCompatActivity() {
         val btnPerfil1 = findViewById<MaterialButton>(R.id.btnPerfil1)
         val btnPerfil2 = findViewById<ImageButton>(R.id.btnPerfil2)
         val btnPide= findViewById<ImageButton>(R.id.btnPide)
+        val btnNotificaciones = findViewById<ImageButton>(R.id.btnNotificaciones)
         tvBienvenida = findViewById<TextView>(R.id.tvBienvenida)
 
         // saludo
@@ -208,6 +209,11 @@ class MainActivity : AppCompatActivity() {
         btnPide.setOnClickListener {
             val intent = Intent(this, Pedir_dinero::class.java)
             intent.putExtra("dinero_disponible", dinero_disponible)
+            startActivity(intent)
+        }
+
+        btnNotificaciones.setOnClickListener {
+            val intent = Intent(this, Notificacion::class.java)
             startActivity(intent)
         }
 

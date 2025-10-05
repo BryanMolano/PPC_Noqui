@@ -106,7 +106,7 @@
         app:srcCompat="@drawable/usuario_logo_mainactivity" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/btnNotificaciones"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="124dp"
@@ -130,7 +130,7 @@
         android:background="@android:color/transparent"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toStartOf="@+id/imageButton4"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/btnNotificaciones"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/question_solid_full" />
 
@@ -213,7 +213,7 @@
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/btnNotificaciones"
         app:srcCompat="@drawable/eye_solid_full" />
 
     <TextView
