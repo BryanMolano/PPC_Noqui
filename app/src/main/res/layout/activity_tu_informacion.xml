@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lg_boton_volver" />
 
-    <!-- Marco del perfil -->
+
 
     <TextView
         android:id="@+id/textView29"
@@ -58,10 +58,11 @@
         app:layout_constraintStart_toEndOf="@+id/btnVolver_tuinfo"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Marco del perfil -->
     <ImageView
         android:id="@+id/imageView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="184dp"
+        android:layout_height="183dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,21 +71,21 @@
 
     <!-- Imagen de perfil -->
 
-    <!-- Botón cambiar foto -->
+
     <!-- Botón cambiar foto -->
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgPerfil"
-        android:layout_width="166dp"
-        android:layout_height="166dp"
+        android:layout_width="158dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="12dp"
         android:scaleType="centerCrop"
         android:src="@drawable/foto_perfil"
-        app:layout_constraintBottom_toBottomOf="@id/imageView16"
         app:layout_constraintEnd_toEndOf="@id/imageView16"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="@id/imageView16"
         app:layout_constraintTop_toTopOf="@id/imageView16"
-        app:layout_constraintVertical_bias="0.588" />
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImageView" />
 
     <ImageButton
         android:id="@+id/btncambiarfoto"

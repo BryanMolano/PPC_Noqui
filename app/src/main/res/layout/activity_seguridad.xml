@@ -109,12 +109,11 @@
             android:layout_toStartOf="@+id/btncontraseñaAct"
             android:background="@android:color/transparent"
             android:fontFamily="@font/poppins_light"
-            android:hint="••••"
             android:inputType="textPassword"
             android:padding="12dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#AAAAAA"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <ImageButton
             android:id="@+id/btncontraseñaAct"
@@ -162,12 +161,11 @@
             android:layout_toStartOf="@+id/btnNuevaCont"
             android:background="@android:color/transparent"
             android:fontFamily="@font/poppins_light"
-            android:hint="••••"
             android:inputType="textPassword"
             android:padding="12dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#AAAAAA"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <ImageButton
             android:id="@+id/btnNuevaCont"
@@ -216,12 +214,11 @@
             android:layout_toStartOf="@+id/btnConfirmcon"
             android:background="@android:color/transparent"
             android:fontFamily="@font/poppins_light"
-            android:hint="••••"
             android:inputType="textPassword"
             android:padding="12dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#AAAAAA"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <ImageButton
             android:id="@+id/btnConfirmcon"
