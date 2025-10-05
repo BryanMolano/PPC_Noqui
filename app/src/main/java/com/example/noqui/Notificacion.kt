@@ -15,6 +15,7 @@ import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import android.text.Html
 
 class Notificacion : AppCompatActivity() {
     private lateinit var btnVolver: ImageButton
@@ -90,7 +91,6 @@ class Notificacion : AppCompatActivity() {
 
     /** Actualiza el estilo visual de los botones de pestaña */
     private fun actualizarEstiloBotones() {
-        // Usamos colores estándar de Android y el gris '#A9A9A9' (hardcodeado)
         val colorActivo = ContextCompat.getColor(this, android.R.color.white)
         val colorInactivo = 0xFFA9A9A9.toInt() // Gris claro
 
@@ -141,11 +141,18 @@ class Notificacion : AppCompatActivity() {
             fun enlazar(peticion: PeticionDinero, esRecibido: Boolean) {
                 if (esRecibido) {
                     tvTitulo.text = "¡Recibiste ${formatoNumero.format(peticion.monto)}!"
-                    tvMonto.text = "De: ${peticion.contacto}"
+
+                    // Aplicar negrilla al nombre del contacto en la línea "De:"
+                    val textoMonto = "De: <b>${peticion.contacto}</b>"
+                    tvMonto.text = Html.fromHtml(textoMonto, Html.FROM_HTML_MODE_COMPACT)
+
                     // Color verde (Recibido)
                     tvMonto.setTextColor(ContextCompat.getColor(itemView.context, android.R.color.holo_green_light))
                 } else {
-                    tvTitulo.text = "Solicitud a ${peticion.contacto}"
+                    // Aplicar negrilla al nombre del contacto en el título de la solicitud
+                    val textoTitulo = "Solicitud a <b>${peticion.contacto}</b>"
+                    tvTitulo.text = Html.fromHtml(textoTitulo, Html.FROM_HTML_MODE_COMPACT)
+
                     tvMonto.text = "Monto: ${formatoNumero.format(peticion.monto)}"
                     // Color naranja (En Espera)
                     tvMonto.setTextColor(ContextCompat.getColor(itemView.context, android.R.color.holo_orange_light))
