@@ -17,10 +17,10 @@
         android:text="Cancelar tu tarjeta"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
+        app:layout_constraintTop_toBottomOf="@+id/btnImgCongelar" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/btnImgCancelar"
         android:layout_width="353dp"
         android:layout_height="62dp"
         android:layout_marginStart="29dp"
@@ -34,13 +34,13 @@
         app:srcCompat="@drawable/tarjeta_congelar_boton" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/btnImgflechaCancelarTj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton5"
-        app:layout_constraintTop_toTopOf="@+id/imageButton5"
+        app:layout_constraintEnd_toEndOf="@+id/btnImgCancelar"
+        app:layout_constraintTop_toTopOf="@+id/btnImgCancelar"
         app:srcCompat="@drawable/flecha_corta" />
 
     <ImageView
@@ -89,27 +89,28 @@
         app:layout_constraintTop_toBottomOf="@+id/separador3" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/btnImgCongelar"
         android:layout_width="353dp"
         android:layout_height="62dp"
         android:layout_marginStart="29dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="29dp"
         android:background="#00FFFFFF"
         android:backgroundTint="#EAFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView24"
         app:srcCompat="@drawable/tarjeta_congelar_boton" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/btnImgflechaBloquear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toTopOf="@+id/imageButton3"
+        app:layout_constraintEnd_toEndOf="@+id/btnImgCongelar"
+        app:layout_constraintTop_toTopOf="@+id/btnImgCongelar"
         app:srcCompat="@drawable/flecha_corta" />
 
     <TextView
@@ -120,8 +121,8 @@
         android:layout_marginTop="18dp"
         android:text="Bloquéala temporalmente"
         android:textColor="#EAFFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/imageButton3"
-        app:layout_constraintTop_toTopOf="@+id/imageButton3" />
+        app:layout_constraintStart_toStartOf="@+id/btnImgCongelar"
+        app:layout_constraintTop_toTopOf="@+id/btnImgCongelar" />
 
     <TextView
         android:id="@+id/textView27"
@@ -131,6 +132,6 @@
         android:layout_marginTop="18dp"
         android:text="Por robo, pérdida o no uso"
         android:textColor="#EAFFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/imageButton5"
-        app:layout_constraintTop_toTopOf="@+id/imageButton5" />
+        app:layout_constraintStart_toStartOf="@+id/btnImgCancelar"
+        app:layout_constraintTop_toTopOf="@+id/btnImgCancelar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

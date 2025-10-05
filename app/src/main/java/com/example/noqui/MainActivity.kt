@@ -162,7 +162,21 @@ class MainActivity : AppCompatActivity() {
             serviciosLauncher.launch(intent)
         }
         btn_tarjeta.setOnClickListener {
-            val intent = Intent(this, tarjeta::class.java)
+            val prefs = getSharedPreferences("TarjetaPrefs", MODE_PRIVATE)
+            val tarjetaCancelada = prefs.getBoolean("tarjeta_cancelada", false)
+
+            val intent = if (tarjetaCancelada) {
+                Intent(this, tarjeta_sacarTJ::class.java)
+            } else {
+                Intent(this, tarjeta::class.java)
+            }
+            startActivity(intent)
+        }
+
+        val btnSacarPlata = findViewById<ImageButton>(R.id.btnSaca)
+
+        btnSacarPlata.setOnClickListener {
+            val intent = Intent(this, sacar_plata::class.java)
             startActivity(intent)
         }
 

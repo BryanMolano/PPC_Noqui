@@ -12,6 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noqui">
         <activity
+            android:name=".tarjeta_sacarTJ"
+            android:exported="false" />
+        <activity
+            android:name=".tarjeta_cancelar"
+            android:exported="false"
+            android:theme="@style/Theme.Transparent" />
+        <activity
             android:name=".Notificacion"
             android:exported="false" />
         <activity

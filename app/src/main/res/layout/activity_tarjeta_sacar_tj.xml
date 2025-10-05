@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#161622"
+    tools:context=".tarjeta_sacarTJ">
+
+    <ImageButton
+        android:id="@+id/btnSacarTj"
+        android:layout_width="353dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="94dp"
+        android:layout_marginEnd="29dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#EAFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separador4"
+        app:srcCompat="@drawable/tarjeta_congelar_boton" />
+
+    <ImageView
+        android:id="@+id/btnflechaSacar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnSacarTj"
+        app:layout_constraintTop_toTopOf="@+id/btnSacarTj"
+        app:srcCompat="@drawable/flecha_corta" />
+
+    <TextView
+        android:id="@+id/txTuTarjeta2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Tu Tarjeta"
+        android:textColor="#FFFFFF"
+        android:textSize="23sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/botonVolverTj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lg_boton_volver" />
+
+    <ImageView
+        android:id="@+id/separador4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txTuTarjeta2"
+        app:srcCompat="@drawable/mv_menu_separator" />
+
+    <ImageButton
+        android:id="@+id/btnImgPreguntaTj2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="304dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="30dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/botonVolverTj"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/question_solid_full" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="18dp"
+        android:text="¿Sacar una tarjeta virtual?"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/btnSacarTj"
+        app:layout_constraintTop_toTopOf="@+id/btnSacarTj" />
+</androidx.constraintlayout.widget.ConstraintLayout>

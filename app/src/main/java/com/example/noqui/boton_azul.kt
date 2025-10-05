@@ -14,12 +14,5 @@ class boton_azul : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_boton_azul)
 
-        val btnSacarPlata = findViewById<ImageButton>(R.id.btnSaca)
-
-        btnSacarPlata.setOnClickListener {
-            val intent = Intent(this, sacar_plata::class.java)
-            startActivity(intent)
-        }
-
     }
 }

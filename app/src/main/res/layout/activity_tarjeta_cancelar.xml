@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <ImageButton
+        android:id="@+id/btnFondo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#88000000"
+        android:scaleType="centerCrop"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <ImageView
+        android:id="@+id/ventana"
+        android:layout_width="245dp"
+        android:layout_height="178dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="276dp"
+        app:layout_constraintStart_toStartOf="@+id/btnFondo"
+        app:layout_constraintTop_toTopOf="@+id/btnFondo"
+        app:srcCompat="@drawable/tarjeta_congelar_boton" />
+
+    <Button
+        android:id="@+id/btnSi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Si"
+        app:layout_constraintStart_toStartOf="@+id/ventana"
+        app:layout_constraintTop_toBottomOf="@+id/mensaje" />
+
+    <TextView
+        android:id="@+id/mensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
+        android:text="¿Está seguro de que desea\ncancelar su tarjeta?"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/ventana"
+        app:layout_constraintTop_toTopOf="@+id/ventana" />
+
+    <Button
+        android:id="@+id/btnNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="No"
+        app:layout_constraintEnd_toEndOf="@+id/ventana"
+        app:layout_constraintTop_toBottomOf="@+id/mensaje" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
