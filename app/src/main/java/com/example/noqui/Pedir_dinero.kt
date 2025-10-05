@@ -119,6 +119,7 @@ class Pedir_dinero : AppCompatActivity() {
     private fun crearSolicitudEnEspera() {
         val contacto = edtNumero.text.toString().trim()
         val montoStr = edtMonto.text.toString().trim()
+        // El mensaje es opcional, se usa el trim() para guardar vacío si solo tiene espacios
         val mensaje = edtMensaje.text.toString().trim()
 
         if (contacto.isEmpty() || montoStr.isEmpty()) {
@@ -132,7 +133,15 @@ class Pedir_dinero : AppCompatActivity() {
             return
         }
 
-        // Simulación de guardado
+        // 1. CREAR Y GUARDAR LA SOLICITUD EN LA LISTA 'solicitudesEnEspera'
+        val nuevaPeticion = PeticionDinero(
+            contacto = contacto,
+            monto = monto,
+            mensaje = mensaje
+        )
+        // **CORRECCIÓN: Se agrega la nueva solicitud al Singleton de datos.**
+        AlmacenDatos.solicitudesEnEspera.add(0, nuevaPeticion) // Agregar al inicio para que aparezca primero
+
         Toast.makeText(this, "Solicitud a $contacto enviada.", Toast.LENGTH_LONG).show()
 
 
