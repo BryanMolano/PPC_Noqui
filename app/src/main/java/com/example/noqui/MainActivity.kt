@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-    // 💡 NUEVO LAUNCHER para PERFIL_INICIO (para recibir el nombre actualizado)
+    //  LAUNCHER para para recibir el nombre actualizado
     private val perfilLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -125,9 +125,10 @@ class MainActivity : AppCompatActivity() {
         val btn_envia = findViewById<ImageButton>(R.id.btnEnvia)
         val btnPerfil1 = findViewById<MaterialButton>(R.id.btnPerfil1)
         val btnPerfil2 = findViewById<ImageButton>(R.id.btnPerfil2)
+        val btnPide= findViewById<ImageButton>(R.id.btnPide)
         tvBienvenida = findViewById<TextView>(R.id.tvBienvenida)
 
-        // 💡 Lógica inicial para el saludo (usa el valor persistido en perfil_Inicio)
+        // saludo
         val primerNombre = perfil_Inicio.getFirstName(perfil_Inicio.currentUserName)
         tvBienvenida.text = "Hola, $primerNombre"
 
@@ -193,6 +194,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("dinero_total", dinero_total)
             cajaFuerteLauncher.launch(intent)
         }
+        //botones para desplegar la pantalla de perfil
         btnPerfil1.setOnClickListener {
             val intent = Intent(this, perfil_Inicio::class.java)
             perfilLauncher.launch(intent)
@@ -201,6 +203,12 @@ class MainActivity : AppCompatActivity() {
         btnPerfil2.setOnClickListener {
             val intent = Intent(this, perfil_Inicio::class.java)
             perfilLauncher.launch(intent)
+        }
+        //boton para desplegar la pantalla de pedir dinero desde el boton azul
+        btnPide.setOnClickListener {
+            val intent = Intent(this, Pedir_dinero::class.java)
+            intent.putExtra("dinero_disponible", dinero_disponible)
+            startActivity(intent)
         }
 
         btn_ojo_dinero.setOnClickListener {

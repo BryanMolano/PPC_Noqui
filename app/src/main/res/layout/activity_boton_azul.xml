@@ -55,6 +55,7 @@
         android:layout_marginEnd="13dp"
         android:layout_marginBottom="12dp"
         android:background="@android:color/transparent"
+        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/btnEnvia"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ba_boton_pide" />
