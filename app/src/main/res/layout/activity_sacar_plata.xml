@@ -106,9 +106,11 @@
         android:id="@+id/btnRetirar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="76dp"
         android:text="Retirar"
-        tools:layout_editor_absoluteX="183dp"
-        tools:layout_editor_absoluteY="471dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txAviso" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
