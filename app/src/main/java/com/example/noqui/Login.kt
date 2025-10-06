@@ -8,9 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+
 class Login : AppCompatActivity() {
 
-    // Constante para la clave del Intent, usada para enviar el teléfono
     companion object {
         const val EXTRA_TELEFONO_LOGIN = "numero_telefono"
     }
@@ -29,6 +29,7 @@ class Login : AppCompatActivity() {
         botonVolver.setOnClickListener {
             finishAffinity()
         }
+
         botonVerClave.setOnClickListener {
             claveVisible = !claveVisible
 
@@ -46,23 +47,39 @@ class Login : AppCompatActivity() {
             val telefono = editTelefono.text.toString().trim()
             val clave = editClave.text.toString().trim()
 
-            if (telefono.isEmpty() || clave.isEmpty()) {
-                Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
-            } else {
-                // Validación simulada exitosa
-                Toast.makeText(this, "Usuario Ingresado Correctamente", Toast.LENGTH_SHORT).show()
+            //Validaciones
+            when {
+                telefono.isEmpty() || clave.isEmpty() -> {
+                    Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
+                }
 
-                // ** LÓGICA DE PERSISTENCIA: Guardar la clave y el teléfono en perfil_Inicio **
-                // Esto permite que Seguridad.kt acceda a la clave actual para su validación.
-                perfil_Inicio.currentUserPassword = clave
-                perfil_Inicio.currentUserPhone = telefono
-                perfil_Inicio.currentUserName = "Usuario de $telefono" // Establecer un nombre inicial
+                !telefono.matches(Regex("^[0-9]{10}$")) -> {
+                    // Asegura que sean exactamente 10 dígitos numéricos
+                    Toast.makeText(this, "El número de teléfono debe tener exactamente 10 dígitos numéricos", Toast.LENGTH_SHORT).show()
+                }
 
-                val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("numero_telefono", telefono)
-                startActivity(intent)
-                finish()
+                telefono.startsWith("-") -> {
+                    // Bloquea números negativos (por si acaso)
+                    Toast.makeText(this, "El número de teléfono no puede tener signo negativo", Toast.LENGTH_SHORT).show()
+                }
+
+                else -> {
+                    // Validación simulada exitosa
+                    Toast.makeText(this, "Usuario Ingresado Correctamente", Toast.LENGTH_SHORT).show()
+
+                    // ** LÓGICA DE PERSISTENCIA: Guardar la clave y el teléfono en perfil_Inicio **
+                    // Esto permite que Seguridad.kt acceda a la clave actual para su validación.
+                    perfil_Inicio.currentUserPassword = clave
+                    perfil_Inicio.currentUserPhone = telefono
+                    perfil_Inicio.currentUserName = "Usuario de $telefono"  // Establecer un nombre inicial
+
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("numero_telefono", telefono)
+                    startActivity(intent)
+                    finish()
+                }
             }
         }
     }
 }
+
