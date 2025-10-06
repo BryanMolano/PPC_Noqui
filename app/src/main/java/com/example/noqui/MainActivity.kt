@@ -85,6 +85,31 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    private val sacarPlataLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data = result.data
+                if (data != null) {
+                    //Recibir el nuevo saldo desde sacar_plata
+                    val nuevoSaldoDouble = data.getDoubleExtra("nuevo_dinero_disponible", dinero_disponible.toDouble())
+
+                    // Recibir información adicional (opcional)
+                    val montoRetirado = data.getIntExtra("mo_monto", 0)
+                    val descripcionMovimiento = data.getStringExtra("mo_numero") ?: "Retiro"
+
+                    //Registrar movimiento (si tienes lista de movimientos)
+                    movimientos.add(Movimiento(descripcionMovimiento, montoRetirado))
+
+                    //Actualizar saldos
+                    dinero_disponible = nuevoSaldoDouble.toInt()
+                    dinero_total = dinero_disponible + dinero_caja_fuerte
+
+                    actualizarSaldosUI()
+                }
+            }
+        }
+
+
     //  LAUNCHER para para recibir el nombre actualizado
     private val perfilLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -177,7 +202,8 @@ class MainActivity : AppCompatActivity() {
 
         btnSacarPlata.setOnClickListener {
             val intent = Intent(this, sacar_plata::class.java)
-            startActivity(intent)
+            intent.putExtra("dinero_disponible", dinero_disponible.toDouble())
+            sacarPlataLauncher.launch(intent)
         }
 
         actualizarSaldosUI()

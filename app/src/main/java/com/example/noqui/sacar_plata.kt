@@ -1,9 +1,14 @@
 package com.example.noqui
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,6 +21,7 @@ class sacar_plata : AppCompatActivity() {
     private var codigoActual: Int = 0
     private var mostrarCodigo = false
     private lateinit var timer: CountDownTimer
+    private var dineroDisponible: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +32,10 @@ class sacar_plata : AppCompatActivity() {
         val btnVerCodigo = findViewById<ImageButton>(R.id.btnVerCodigo)
         Contador = findViewById<TextView>(R.id.tiempoCodigo)
         val btnVolver = findViewById<ImageButton>(R.id.botonVolverSacarPlat)
+        val cantidad = findViewById<EditText>(R.id.CantidadRetiro)
+        val btnRetirar = findViewById<Button>(R.id.btnRetirar)
+
+        dineroDisponible = intent.getDoubleExtra("dinero_disponible", 0.0)
 
         btnVolver.setOnClickListener {
             finish()
@@ -42,6 +52,32 @@ class sacar_plata : AppCompatActivity() {
 
         // Iniciar temporizador de 30 segundos
         iniciarTemporizador()
+
+        btnRetirar.setOnClickListener {
+            val cantidadTexto = cantidad.text.toString()
+            if (cantidadTexto.isEmpty()) {
+                Toast.makeText(this, "Por favor, ingrese una cantidad", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val monto = cantidadTexto.toDoubleOrNull()
+            if (monto == null || monto <= 0) {
+                Toast.makeText(this, "Ingrese un monto válido", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (monto > dineroDisponible) {
+                Toast.makeText(this, "Saldo insuficiente", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
+            val nuevoSaldo = dineroDisponible - monto
+            val resultIntent = Intent().apply {
+                putExtra("nuevo_dinero_disponible", nuevoSaldo)
+            }
+            setResult(Activity.RESULT_OK, resultIntent)
+            finish()
+        }
     }
 
     private fun iniciarTemporizador() {
