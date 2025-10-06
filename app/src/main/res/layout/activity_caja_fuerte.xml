@@ -73,9 +73,9 @@
 
     <TextView
         android:id="@+id/tv_dinero_caja_fuerte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="224dp"
+        android:layout_width="217dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="120dp"
         android:text="$0,00"
         android:textColor="#FFFFFF"
         android:textSize="48dp"
@@ -111,7 +111,7 @@
 
     <TextView
         android:id="@+id/tv_dinero_a_meter_caja_fuerte"
-        android:layout_width="119dp"
+        android:layout_width="158dp"
         android:layout_height="42dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"

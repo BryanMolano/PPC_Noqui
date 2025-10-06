@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.ImageButton
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
@@ -24,11 +25,64 @@ class Pagar_factura_celular : AppCompatActivity() {
         val edit_dinero = findViewById<EditText>(R.id.edit_dinero)
         val edit_numero = findViewById<EditText>(R.id.edit_numero)
         val txtview_factura_celular = findViewById<TextView>(R.id.txtview_factura_celular)
+        var logo = findViewById<ImageView>(R.id.logo_servicio)
+        var editNumero = findViewById<EditText>(R.id.edit_numero)
+
 
         var dineroDisponible = intent.getIntExtra("dinero_disponible",0)
         val servicio = intent.getStringExtra("servicio" )?:"Movistar"
 
-        //txtview_factura_celular.text = "Pagar Factura de celular $servicio"
+        if(servicio=="celular_movistar"){
+            logo.setImageResource(R.drawable.servicios_boton_movistar)
+            txtview_factura_celular.text="Pagar Factura de celular Movistar"
+            editNumero.hint = "Ingrese el numero de celular"
+        }else if(servicio=="celular_claro"){
+            logo.setImageResource(R.drawable.servicios_boton_claro)
+            txtview_factura_celular.text="Pagar Factura de celular Claro"
+            editNumero.hint = "Ingrese el numero de celular"
+
+        }else if(servicio=="celular_wom"){
+            logo.setImageResource(R.drawable.servicios_boton_wom)
+            txtview_factura_celular.text="Pagar Factura de celular Wom"
+            editNumero.hint = "Ingrese el numero de celular"
+
+        }else if(servicio=="internet_movistar"){
+            logo.setImageResource(R.drawable.servicios_boton_movistar)
+            txtview_factura_celular.text="Pagar Factura de Internet Hogar Movistar"
+            editNumero.hint = "Ingrese el numero de cuenta"
+
+        }else if(servicio=="internet_claro"){
+            logo.setImageResource(R.drawable.servicios_boton_claro)
+            txtview_factura_celular.text="Pagar Factura de Internet Hogar Claro"
+            editNumero.hint = "Ingrese el numero de cuenta"
+
+        }else if(servicio=="internet_wom"){
+            logo.setImageResource(R.drawable.servicios_boton_wom)
+            txtview_factura_celular.text="Pagar Factura de Internet Hogar Wom"
+            editNumero.hint = "Ingrese el numero de cuenta"
+
+        }else if(servicio=="servicios_1"){
+            logo.setImageResource(R.drawable.servicios_boton_enel)
+            txtview_factura_celular.text="Pagar Factura de Luz Enel"
+            editNumero.hint = "Ingrese el numero de cuenta"
+
+        }else if(servicio=="servicios_2"){
+            logo.setImageResource(R.drawable.servicios_logo_2)
+            txtview_factura_celular.text="Pagar Factura de Luz LuzYa"
+            editNumero.hint = "Ingrese el numero de cuenta"
+
+        }else if(servicio=="servicios_3"){
+            logo.setImageResource(R.drawable.servicios_logo_3)
+            txtview_factura_celular.text="Pagar Factura de Internet Gas Asterisco"
+            editNumero.hint = "Ingrese el numero de cuenta"
+
+        }else if(servicio=="servicios_4"){
+            logo.setImageResource(R.drawable.servicios_logo_4)
+            txtview_factura_celular.text="Pagar Factura de Batmaaaaaaan"
+            editNumero.hint = "Ingrese el numero de cuenta"
+
+        }
+
 
         btn_volver.setOnClickListener {
             setResult(Activity.RESULT_CANCELED)
@@ -41,6 +95,9 @@ class Pagar_factura_celular : AppCompatActivity() {
                 Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
 
+            }else if(edit_numero.text.toString().length<10){
+                Toast.makeText(this, "El número tiene que ser de 10 digitos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
             val monto = edit_dinero.text.toString().toIntOrNull()?:0
             if(monto<=0){

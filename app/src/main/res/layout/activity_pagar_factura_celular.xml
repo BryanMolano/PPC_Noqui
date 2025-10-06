@@ -11,8 +11,8 @@
 
     <TextView
         android:id="@+id/txtview_factura_celular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="377dp"
+        android:layout_height="85dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
         android:fontFamily="@font/poppins_medium"
@@ -101,6 +101,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lg_boton_volver" />
+
+    <ImageView
+        android:id="@+id/logo_servicio"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_dinero"
+        app:srcCompat="@drawable/servicios_boton_movistar"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

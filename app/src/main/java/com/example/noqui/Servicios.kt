@@ -66,17 +66,40 @@ class Servicios : AppCompatActivity() {
         }
 
         btn_celular_movistar.setOnClickListener {
-            abrirPagoCelular("movistar", dinero_disponible_de_main,pagar_launcher)
+            abrirPagoCelular("celular_movistar", dinero_disponible_de_main,pagar_launcher)
 
         }
         btn_celular_claro.setOnClickListener {
-            abrirPagoCelular("claro", dinero_disponible_de_main, pagar_launcher)
+            abrirPagoCelular("celular_claro", dinero_disponible_de_main, pagar_launcher)
 
         }
         btn_celular_wom.setOnClickListener {
-            abrirPagoCelular("wom", dinero_disponible_de_main, pagar_launcher)
+            abrirPagoCelular("celular_wom", dinero_disponible_de_main, pagar_launcher)
 
         }
+        btn_internet_movistar.setOnClickListener {
+            abrirPagoCelular("internet_movistar", dinero_disponible_de_main, pagar_launcher)
+        }
+        btn_internet_claro.setOnClickListener {
+            abrirPagoCelular("internet_claro", dinero_disponible_de_main, pagar_launcher)
+        }
+        btn_internet_wom.setOnClickListener {
+            abrirPagoCelular("internet_wom", dinero_disponible_de_main, pagar_launcher)
+        }
+        btn_servicios_1.setOnClickListener {
+            abrirPagoCelular("servicios_1", dinero_disponible_de_main, pagar_launcher)
+        }
+        btn_servicios_2.setOnClickListener {
+            abrirPagoCelular("servicios_2", dinero_disponible_de_main, pagar_launcher)
+        }
+        btn_servicios_3.setOnClickListener {
+            abrirPagoCelular("servicios_3", dinero_disponible_de_main, pagar_launcher)
+        }
+        btn_servicios_4.setOnClickListener {
+            abrirPagoCelular("servicios_4", dinero_disponible_de_main, pagar_launcher)
+        }
+
+
 
 
 
