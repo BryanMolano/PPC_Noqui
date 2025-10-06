@@ -2,21 +2,26 @@ package com.example.noqui
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri // Importar Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView // Importar ImageView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts // Importar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.content.Context
+import android.util.Log
 
 class Tu_Informacion : AppCompatActivity() {
 
     private lateinit var btnVolverTuInfo: ImageButton
     private lateinit var btnCambiarFoto: ImageButton
     private lateinit var btnActualizarDatos: Button
+    private lateinit var imgPerfil: ImageView // Variable para la imagen de perfil
 
     private lateinit var etNombre: EditText
     private lateinit var btnEditNombre: ImageButton
@@ -27,16 +32,41 @@ class Tu_Informacion : AppCompatActivity() {
     private lateinit var etCorreo: EditText
     private lateinit var btnEditCorreo: ImageButton
 
-    // Claves para el Intent de retorno
+    // Variable para almacenar la URI de la imagen seleccionada
+    private var selectedImageUri: Uri? = null
+
+    // Launcher para obtener una imagen de la galería
+    private val pickImageLauncher = registerForActivityResult(
+        ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        uri?.let {
+            // **INICIO DE CORRECCIÓN CRÍTICA**
+            // Tomar el permiso de URI persistente. Esto es clave para que la app pueda
+            // acceder a la imagen seleccionada después de que esta actividad se destruya
+            // y se vuelva a abrir (incluso desde el MainActivity).
+            val flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+            try {
+                contentResolver.takePersistableUriPermission(it, flags)
+                selectedImageUri = it
+                imgPerfil.setImageURI(it) // Mostrar la imagen seleccionada como vista previa
+            } catch (e: SecurityException) {
+                // Manejar error si no se puede tomar el permiso persistente
+                Log.e("Tu_Informacion", "Error al tomar permiso persistente de URI: ${e.message}")
+                Toast.makeText(this, "No se pudo asegurar el permiso para la imagen. Intenta otra vez.", Toast.LENGTH_LONG).show()
+            }
+            // **FIN DE CORRECCIÓN CRÍTICA**
+        }
+    }
+
     companion object {
         const val EXTRA_NOMBRE = "EXTRA_NOMBRE"
         const val EXTRA_TELEFONO = "EXTRA_TELEFONO"
         const val EXTRA_CORREO = "EXTRA_CORREO"
+        const val EXTRA_URI_FOTO = "EXTRA_URI_FOTO" // Nueva clave para la foto
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_tu_informacion)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -46,16 +76,16 @@ class Tu_Informacion : AppCompatActivity() {
         }
 
         initializeViews()
-        setupFieldStates(false) // Deshabilita los campos al inicio
-        loadInitialData() // Carga datos recibidos
+        setupFieldStates(false)
+        loadInitialData()
         setupClickListeners()
     }
 
     private fun initializeViews() {
-        // Botones y campos
         btnVolverTuInfo = findViewById(R.id.btnVolver_tuinfo)
         btnCambiarFoto = findViewById(R.id.btncambiarfoto)
         btnActualizarDatos = findViewById(R.id.btnActualizarDatos)
+        imgPerfil = findViewById(R.id.imgPerfil) // Inicializar ImageView
 
         etNombre = findViewById(R.id.etNombreperfil)
         btnEditNombre = findViewById(R.id.btnEditNombre)
@@ -67,18 +97,24 @@ class Tu_Informacion : AppCompatActivity() {
         btnEditCorreo = findViewById(R.id.btnEditCorreo)
     }
 
-    /** Carga los datos recibidos desde la actividad anterior. */
     private fun loadInitialData() {
         val nombreActual = intent.getStringExtra(EXTRA_NOMBRE) ?: "Nombre no disponible"
         val telefonoActual = intent.getStringExtra(EXTRA_TELEFONO) ?: ""
         val correoActual = intent.getStringExtra(EXTRA_CORREO) ?: "Correo no disponible"
+        val fotoUriString = intent.getStringExtra(EXTRA_URI_FOTO)
 
         etNombre.setText(nombreActual)
         etTelefono.setText(telefonoActual)
         etCorreo.setText(correoActual)
+
+        // Si se recibe una URI de la pantalla anterior, se carga la imagen actual
+        fotoUriString?.let {
+            val imageUri = Uri.parse(it)
+            imgPerfil.setImageURI(imageUri)
+            selectedImageUri = imageUri
+        }
     }
 
-    /** Configura el estado inicial de habilitación de los campos de texto. */
     private fun setupFieldStates(isEnabled: Boolean) {
         etNombre.isEnabled = isEnabled
         etTelefono.isEnabled = isEnabled
@@ -91,18 +127,15 @@ class Tu_Informacion : AppCompatActivity() {
             finish()
         }
 
-        // Botones de Edición Individual
-        btnEditNombre.setOnClickListener {
-            toggleEditField(etNombre, "Escribe tu nombre completo")
-        }
-        btnEditTelefono.setOnClickListener {
-            toggleEditField(etTelefono, "Ingresa tu número de teléfono")
-        }
-        btnEditCorreo.setOnClickListener {
-            toggleEditField(etCorreo, "Ingresa tu correo electrónico")
+        // Al hacer clic en el botón de cambiar foto, se abre la galería
+        btnCambiarFoto.setOnClickListener {
+            pickImageLauncher.launch("image/*") // Lanza el selector de imágenes
         }
 
-        // Botón Actualizar Datos
+        btnEditNombre.setOnClickListener { toggleEditField(etNombre, "Escribe tu nombre completo") }
+        btnEditTelefono.setOnClickListener { toggleEditField(etTelefono, "Ingresa tu número de teléfono") }
+        btnEditCorreo.setOnClickListener { toggleEditField(etCorreo, "Ingresa tu correo electrónico") }
+
         btnActualizarDatos.setOnClickListener {
             val nuevoNombre = etNombre.text.toString().trim()
             val nuevoTelefono = etTelefono.text.toString().trim()
@@ -113,11 +146,15 @@ class Tu_Informacion : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Prepara y envía los resultados a la actividad de origen (perfil_Inicio)
             val resultIntent = Intent()
             resultIntent.putExtra(EXTRA_NOMBRE, nuevoNombre)
             resultIntent.putExtra(EXTRA_TELEFONO, nuevoTelefono)
             resultIntent.putExtra(EXTRA_CORREO, nuevoCorreo)
+
+            // Añadir la URI de la nueva imagen al intent de resultado
+            selectedImageUri?.let {
+                resultIntent.putExtra(EXTRA_URI_FOTO, it.toString())
+            }
 
             setResult(Activity.RESULT_OK, resultIntent)
             Toast.makeText(this, "Datos actualizados.", Toast.LENGTH_LONG).show()
