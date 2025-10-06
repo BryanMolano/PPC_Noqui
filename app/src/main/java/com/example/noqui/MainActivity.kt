@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private var dinero_caja_fuerte: Int = 0
     private var dinero_total: Int = dinero_disponible + dinero_caja_fuerte
     private var monto_en: Int = 0
+    private var monto_sc: Int = 0
     private var numero: String = ""
     private var dinero_visible: Boolean = true
     private lateinit var tvBienvenida: TextView // Declaración de tvBienvenida
@@ -94,11 +95,10 @@ class MainActivity : AppCompatActivity() {
                     val nuevoSaldoDouble = data.getDoubleExtra("nuevo_dinero_disponible", dinero_disponible.toDouble())
 
                     // Recibir información adicional (opcional)
-                    val montoRetirado = data.getIntExtra("mo_monto", 0)
-                    val descripcionMovimiento = data.getStringExtra("mo_numero") ?: "Retiro"
+                    monto_sc = data.getIntExtra("monto_mv", 0)
 
                     //Registrar movimiento (si tienes lista de movimientos)
-                    movimientos.add(Movimiento(descripcionMovimiento, montoRetirado))
+                    movimientos.add(Movimiento("Retiro en Cajero", -monto_sc))
 
                     //Actualizar saldos
                     dinero_disponible = nuevoSaldoDouble.toInt()

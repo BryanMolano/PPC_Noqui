@@ -72,8 +72,10 @@ class sacar_plata : AppCompatActivity() {
             }
 
             val nuevoSaldo = dineroDisponible - monto
+            val monto_mv = cantidadTexto.toInt()
             val resultIntent = Intent().apply {
                 putExtra("nuevo_dinero_disponible", nuevoSaldo)
+                putExtra("monto_mv", monto_mv)
             }
             setResult(Activity.RESULT_OK, resultIntent)
             finish()
