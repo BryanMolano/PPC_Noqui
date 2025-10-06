@@ -81,7 +81,8 @@
         android:background="@drawable/fondo_grisoscuro_icono"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/separador2"
-        app:srcCompat="@drawable/tarjetav2" />
+        app:srcCompat="@drawable/congelar"
+        android:scaleType="fitCenter"/>
 
     <TextView
         android:id="@+id/txcongTj"
@@ -313,6 +314,18 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/separador2"
         app:layout_constraintStart_toStartOf="@+id/Tarjeta" />
+
+    <ImageView
+        android:id="@+id/tarjetaCongelada"
+        android:layout_width="364dp"
+        android:layout_height="235dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="143dp"
+        android:background="#660063FF"
+        android:alpha="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/congelar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
