@@ -77,6 +77,21 @@ class tarjeta : AppCompatActivity() {
         } else {
             tarjetaCongelada.visibility = ImageView.GONE
         }
+        actualizarEstadoTarjeta()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        actualizarEstadoTarjeta()
+    }
+
+    //Refresca la visibilidad del ImageView según el switch guardado
+    private fun actualizarEstadoTarjeta() {
+        val tarjetaCongelada = findViewById<ImageView>(R.id.tarjetaCongelada)
+        val sharedPref = getSharedPreferences("TarjetaPrefs", Context.MODE_PRIVATE)
+        val isDigitalOn = sharedPref.getBoolean("switchDigitalTjState", false)
+
+        tarjetaCongelada.visibility = if (isDigitalOn) ImageView.VISIBLE
+        else ImageView.GONE
     }
 }

@@ -13,10 +13,6 @@ class congelar_tarjeta : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_congelar_tarjeta)
 
-        val btnVolver = findViewById<ImageButton>(R.id.botonVolverCongTj)
-        btnVolver.setOnClickListener {
-            finish()
-        }
         val switchFisica = findViewById<Switch>(R.id.switchFisicaTj)
         val switchDigitalTj = findViewById<Switch>(R.id.switchDigitalTj)
         val prefs = getSharedPreferences("TarjetaPrefs", Context.MODE_PRIVATE)
@@ -31,6 +27,12 @@ class congelar_tarjeta : AppCompatActivity() {
         }
         switchDigitalTj.setOnCheckedChangeListener { _, isChecked ->
             prefs.edit().putBoolean("switchDigitalTjState", isChecked).apply()
+        }
+
+        val btnVolver = findViewById<ImageButton>(R.id.botonVolverCongTj)
+        btnVolver.setOnClickListener {
+            prefs.edit().putBoolean("debeActualizar", true).apply()
+            finish()
         }
     }
 }
